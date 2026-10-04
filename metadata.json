@@ -1,0 +1,6 @@
+{
+  "name": "PARAKH — Financial Content Verification",
+  "description": "AI-powered financial content verification platform built for Bharat. Don't just trust. Verify.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
