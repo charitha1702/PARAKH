@@ -61,7 +61,21 @@ app.post('/api/transcribe', async (req, res) => {
       }
     };
 
-    const targetLangNotice = language === 'kn' ? 'Kannada' : language === 'hi' ? 'Hindi' : language === 'te' ? 'Telugu' : 'English or Indian code-mixed';
+    const languageNames: Record<string, string> = {
+      en: 'English',
+      hi: 'Hindi (हिन्दी)',
+      kn: 'Kannada (ಕನ್ನಡ)',
+      te: 'Telugu (తెలుగు)',
+      ta: 'Tamil (தமிழ்)',
+      ml: 'Malayalam (മലയാളം)',
+      mr: 'Marathi (मराठी)',
+      bn: 'Bengali (বাংলা)',
+      gu: 'Gujarati (ગુજરાતી)',
+      pa: 'Punjabi (ਪੰਜਾਬੀ)',
+      or: 'Odia (ଓଡ଼ିଆ)',
+      ur: 'Urdu (اردو)'
+    };
+    const targetLangNotice = languageNames[language] || 'English or Indian code-mixed';
 
     const response = await ai.models.generateContent({
       model: 'gemini-3.5-transcribe',
@@ -275,7 +289,15 @@ app.post('/api/analyze', async (req, res) => {
       en: 'English',
       hi: 'Hindi (हिन्दी)',
       kn: 'Kannada (ಕನ್ನಡ)',
-      te: 'Telugu (తెలుగు)'
+      te: 'Telugu (తెలుగు)',
+      ta: 'Tamil (தமிழ்)',
+      ml: 'Malayalam (മലയാളം)',
+      mr: 'Marathi (मराठी)',
+      bn: 'Bengali (বাংলা)',
+      gu: 'Gujarati (ગુજરાતી)',
+      pa: 'Punjabi (ਪੰਜਾਬੀ)',
+      or: 'Odia (ଓଡ଼ିଆ)',
+      ur: 'Urdu (اردو)'
     };
     const targetLangName = languageNames[language] || 'English';
 

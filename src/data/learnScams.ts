@@ -12,7 +12,7 @@ export interface LocalizedScamTopic {
   regulatoryFact: string;
 }
 
-export const LEARN_SCAM_TOPICS: Record<Language, LocalizedScamTopic[]> = {
+export const LEARN_SCAM_TOPICS: Partial<Record<Language, LocalizedScamTopic[]>> & Record<'en', LocalizedScamTopic[]> = {
   en: [
     {
       id: 'guaranteed-returns',

@@ -38,7 +38,8 @@ export default function App() {
   const [currentLanguage, setCurrentLanguage] = useState<Language>(() => {
     try {
       const saved = localStorage.getItem(LANGUAGE_STORAGE_KEY) as Language;
-      if (saved && ['en', 'hi', 'kn', 'te'].includes(saved)) {
+      const validLangs: Language[] = ['en', 'hi', 'kn', 'te', 'ta', 'ml', 'mr', 'bn', 'gu', 'pa', 'or', 'ur'];
+      if (saved && validLangs.includes(saved)) {
         return saved;
       }
     } catch {
@@ -46,6 +47,15 @@ export default function App() {
     }
     return 'en';
   });
+
+  // Dynamic RTL support for Urdu and document dir attribute
+  useEffect(() => {
+    if (currentLanguage === 'ur') {
+      document.documentElement.dir = 'rtl';
+    } else {
+      document.documentElement.dir = 'ltr';
+    }
+  }, [currentLanguage]);
 
   const [simpleMode, setSimpleMode] = useState<boolean>(false);
   const [currentView, setCurrentView] = useState<'landing' | 'home' | 'learn' | 'official' | 'about'>('landing');

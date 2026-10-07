@@ -16,14 +16,14 @@ export const Footer: React.FC<FooterProps> = ({
 }) => {
   const t = TRANSLATIONS[currentLanguage] || TRANSLATIONS.en;
 
-  const aboutLabel: Record<Language, string> = {
+  const aboutLabel: Partial<Record<Language, string>> & { en: string } = {
     en: 'About PARAKH',
     kn: 'PARAKH ಕುರಿತು',
     hi: 'PARAKH के बारे में',
     te: 'PARAKH గురించి'
   };
 
-  const privacyLabel: Record<Language, string> = {
+  const privacyLabel: Partial<Record<Language, string>> & { en: string } = {
     en: 'Privacy Policy',
     kn: 'ಗೌಪ್ಯತಾ ನೀತಿ',
     hi: 'गोपनीयता नीति',

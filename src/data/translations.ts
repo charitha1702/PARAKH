@@ -1,4 +1,5 @@
 import { Language } from '../types/analysis';
+import { TAMIL_TRANSLATIONS, EXTENDED_LANGUAGE_BUILDERS } from './translations/extendedLanguages';
 
 export interface UIStrings {
   // Navigation
@@ -255,14 +256,145 @@ export interface UIStrings {
   footerStatutoryNoticeText: string;
   footerCopyright: string;
   footerHelplineText: string;
+
+  // Trust Chain & How You Know
+  trustChainBadge: string;
+  trustChainTitle: string;
+  trustChainSubtitle: string;
+  couldNotVerify: string;
+  showHowYouKnow: string;
+  aiDetected: string;
+  evidenceChecked: string;
+  result: string;
+  aiAnalysisTab: string;
+  officialEvidenceTab: string;
+  communityEvidenceTab: string;
+
+  // Emerging Pattern
+  emergingPatternBadge: string;
+  emergingPatternTitle: string;
+  emergingPatternDesc: string;
+  emergingPatternDisclaimer: string;
+
+  // Community Evidence
+  communitySectionBadge: string;
+  communitySectionTitle: string;
+  communitySectionSubtitle: string;
+  communitySubmitReport: string;
+  communityFirstHandBadge: string;
+  communityEvidenceAttachedBadge: string;
+  communityClaimBadge: string;
+  communityOfficiallyVerifiedBadge: string;
+  communityAiSummaryTitle: string;
+  communityIEncounteredThis: string;
+  communityDisclaimer: string;
+  communityReportModalTitle: string;
+  communityReportCityLabel: string;
+  communityReportDescLabel: string;
+  communityReportEvidenceLabel: string;
+  communityReportSubmitAction: string;
+  communityReportCancelAction: string;
+
+  // Simple Mode Guidance
+  simpleStopBeforeYouPay: string;
+  simpleMessageAsksMoney: string;
+  simpleCouldNotVerifySender: string;
+  simpleCheckOfficialSite: string;
+  simpleDoNotShareOtpPin: string;
+
+  // Verdict Categories & Headers
+  verdictHighRisk: string;
+  verdictSomeConcerns: string;
+  verdictNoMajorRisk: string;
+  verdictInsufficientEvidence: string;
+  finalParakhVerdict: string;
+  objectiveForensicAssessment: string;
+  parakhCorePrinciple: string;
+  parakhPrincipleQuote: string;
+  parakhPrincipleSubtext: string;
+
+  // Scam DNA & Behavioral Vectors
+  pressureVectorsTitle: string;
+  statutoryPrefix: string;
+  signalDetectedTag: string;
+  signalClearTag: string;
+
+  // Community Evidence
+  objectiveSynthesis: string;
+  recurringModusOperandi: string;
+  evidenceDiscrepanciesTitle: string;
+  viewInSelectedLang: string;
+  viewOriginal: string;
+  claimChallengedTag: string;
+  challengeClaimButton: string;
+  evidenceNotePrefix: string;
+  regulatoryCheckPrefix: string;
+  challengeRegisteredNotice: string;
+
+  // Trust Chain
+  trustChainEntityNodes: string;
+  trustChainInspectHint: string;
+  nodeInspectionTitle: string;
+  officialSourceChecked: string;
+  closeEvidenceAudit: string;
+  distinctionLayersTitle: string;
+  evidenceAuditDisclaimer: string;
+  independentAuditTag: string;
+  reasoningBreakdown: string;
+
+  // What Contradicts
+  whatContradictsTitle: string;
+  statutoryRulesBadge: string;
+  observedFactsBadge: string;
+
+  // Section Audio
+  audioPlayingWave: string;
+  audioListenSection: string;
+  audioStopSection: string;
+
+  // Challenge Outcomes
+  outcomeContradictoryFound: string;
+  outcomeContradictoryDesc: string;
+  outcomeInconclusive: string;
+  outcomeInconclusiveDesc: string;
+  outcomeNoContradictory: string;
+  outcomeNoContradictoryDesc: string;
+  challengeVerdictAdjustNotice: string;
+  retestChallenge: string;
+  verdictUpdatedTag: string;
+
+  // Emerging Pattern Banner
+  matchingVectorsLabel: string;
+  hideVectorsButton: string;
+  inspectSharedVectorsButton: string;
+  sharedCharacteristicsTitle: string;
+
+  // Upgraded Trust Chain Keys
+  trustBreakTitle: string;
+  trustBreakSubtitle: string;
+  relationshipInspectionTitle: string;
+  relationshipInspectionSubtitle: string;
+  claimQuestionLabel: string;
+  evidenceCheckedLabel: string;
+  findingLabel: string;
+  connectedEntitiesLabel: string;
+  evidenceGapsLabel: string;
+  suspiciousRelationshipsLabel: string;
+  evidenceCoverageLimited: string;
+  inspectRelationshipButton: string;
+  trustGapDetected: string;
+  relationshipUnverified: string;
+  mismatchDetected: string;
+  officialSourceBadge: string;
+  supportingEvidenceBadge: string;
+  whereDoesTrustBreakQuestion: string;
+  clickToInspectNodeOrEdge: string;
+  statusLabel: string;
+  closeInspection: string;
 }
 
-export const TRANSLATIONS: Record<Language, UIStrings> = {
-  // =========================================================================
-  // ENGLISH
-  // =========================================================================
-  en: {
-    brandName: "PARAKH",
+const enStrings: UIStrings = {
+  brandName: "PARAKH",
     checkNav: "Check",
     learnNav: "Learn",
     evidenceNav: "Evidence",
@@ -273,17 +405,17 @@ export const TRANSLATIONS: Record<Language, UIStrings> = {
     logoutCta: "Log out",
     privacyTooltip: "Private by Design",
 
-    heroTitlePart1: "Don’t just trust.",
-    heroTitleVerify: "Verify.",
-    heroSubtitle: "AI-powered financial content verification for Bharat.",
+    heroTitlePart1: "BEFORE YOU BELIEVE IT.",
+    heroTitleVerify: "PARAKH IT.",
+    heroSubtitle: "Financial content moves faster than trust. PARAKH helps you investigate suspicious messages, screenshots, websites and voice inputs — tracing claims to their evidence before you act.",
     heroGetStarted: "Get Started",
     heroSeeHowItWorks: "See how it works",
-    heroCardBadge: "PARAKH VERIFICATION",
-    heroCardWarningSignals: "Warning signals",
-    heroCardSignalsDesc: "Detected across guaranteed returns, artificial urgency & unauthorized routing",
-    heroCardAiSignals: "AI signals",
-    heroCardEvidence: "Evidence",
-    heroCardVerification: "Verification",
+    heroCardBadge: "TRUST CHAIN RECONSTRUCTION",
+    heroCardWarningSignals: "FOLLOW THE CLAIM. FIND THE CONNECTION. CHECK THE EVIDENCE.",
+    heroCardSignalsDesc: "PARAKH connects claims, organizations, websites, contacts, payment routes and evidence — then shows where the chain becomes uncertain.",
+    heroCardAiSignals: "Trace",
+    heroCardEvidence: "Explain",
+    heroCardVerification: "Protect",
 
     inputHeading: "What did you receive?",
     inputSubtitle: "Let PARAKH help you understand it before you act.",
@@ -375,21 +507,21 @@ export const TRANSLATIONS: Record<Language, UIStrings> = {
     whatWeKnowBadge: "VERIFIED SIGNALS",
     whatWeCouldNotVerifyBadge: "UNKNOWN JURISDICTION",
 
-    challengeBadge: "AI HUMILITY CHECK",
-    challengeTitle: "Challenge this result",
-    challengeSubtitle: "PARAKH does not claim mathematical omniscience. Test alternative explanations.",
-    challengeButton: "Try to prove this assessment wrong",
-    challengeTesting: "PARAKH is checking whether the initial assessment could be misleading or whether legitimate exceptions exist...",
+    challengeBadge: "CHALLENGE PARAKH",
+    challengeTitle: "Challenge the result.",
+    challengeSubtitle: "PARAKH is not designed to always agree with itself. Users can challenge an analysis and look for contradictory or alternative evidence.",
+    challengeButton: "Search for contradictory evidence",
+    challengeTesting: "PARAKH is checking whether alternative explanations exist or whether statutory exceptions apply...",
     investigatingHypothesis: "Investigated Counter-Hypothesis:",
     legitimizingFound: "Potential Legitimizing Considerations:",
     contradictoryFound: "Contradictory Regulatory Proof:",
     updatedNuancedVerdict: "Nuanced Audited Synthesis:",
     auditMaintained: "ASSESSMENT CHALLENGED & AUDITED",
 
-    scamDnaBadge: "BEHAVIORAL SIGNALS",
-    scamDnaTitle: "Scam Pattern",
-    scamDnaSubtitle: "Detected behavioral signals",
-    scamDnaDisclaimer: "Pattern similarity does not establish that a specific person or organization is fraudulent.",
+    scamDnaBadge: "SCAM DNA",
+    scamDnaTitle: "Understand the pattern, not just the warning.",
+    scamDnaSubtitle: "PARAKH identifies behavioral signals such as urgency, guaranteed returns, authority impersonation, payment pressure, phishing and other manipulation tactics.",
+    scamDnaDisclaimer: "Scam DNA: Behavioral patterns detected — not a fake “scam probability” score.",
     metricUrgency: "Urgency Pressure",
     metricGuaranteed: "Guaranteed Return Claims",
     metricAuthority: "Authority Name-Dropping",
@@ -404,24 +536,24 @@ export const TRANSLATIONS: Record<Language, UIStrings> = {
     aboutBadge: "ABOUT PARAKH",
     aboutTitlePart1: "Don’t just trust.",
     aboutTitleVerify: "Verify.",
-    aboutDescription: "PARAKH means examination, scrutiny, and verification. It is an AI-powered financial safety platform engineered for the linguistic diversity and unique financial vulnerabilities of Bharat.",
-    aboutWhyTitle: "Why PARAKH Exists",
-    aboutWhyP1: "Every day across India, millions of citizens receive WhatsApp messages promising 40% guaranteed returns, fraudulent Pre-IPO allotments, task deposit scams, and bogus regulatory notices. Scammers exploit trust, language barriers, and fear to coerce people into sending life savings to disposable mule accounts.",
-    aboutWhyP2: "PARAKH doesn't ask users to blindfoldedly trust another algorithm. Instead, it systematically surfaces why something is suspicious, shows what the law says, checks official registers, and guides users on how to protect their hard-earned money.",
-    pillar1Number: "01. Grounded",
-    pillar1Title: "Statutory Registers",
-    pillar1Desc: "Evaluated against SEBI regulations, RBI directives, and MCA master records rather than unverified search snippets.",
-    pillar2Number: "02. Bharat-First",
-    pillar2Title: "Multilingual & Simple",
-    pillar2Desc: "Accessible in English, हिंदी, ಕನ್ನಡ, and తెలుగు with Simple Mode and full voice readouts for elders.",
-    pillar3Number: "03. Humble",
-    pillar3Title: "Responsible AI",
-    pillar3Desc: "Distinguishes between factual signals and unknowns; allows users to challenge any assessment.",
+    aboutDescription: "PARAKH is an AI-powered financial content verification platform built for Bharat. From suspicious content to evidence-backed understanding.",
+    aboutWhyTitle: "Built to protect, not persuade.",
+    aboutWhyP1: "PARAKH does not provide buy, sell or hold recommendations. It does not ask users for OTPs, PINs, passwords or unnecessary sensitive financial information.",
+    aboutWhyP2: "Its purpose is simple: Help people pause, verify and understand before they act.",
+    pillar1Number: "01. TRACE",
+    pillar1Title: "See where trust breaks.",
+    pillar1Desc: "PARAKH doesn't stop at the message. It reconstructs the relationships behind a financial claim — connecting organizations, websites, contacts, payment routes and evidence to reveal where the available proof becomes weak.",
+    pillar2Number: "02. EXPLAIN",
+    pillar2Title: "Show me how you know.",
+    pillar2Desc: "PARAKH doesn't ask you to trust an AI score. It shows what was detected, what evidence supports the claim, what contradicts it, and what could not be independently verified across AI Analysis, Official Evidence, and Community Evidence.",
+    pillar3Number: "03. BHARAT-FIRST",
+    pillar3Title: "Verification in your language.",
+    pillar3Desc: "PARAKH is built for Bharat — with multilingual analysis, regional-language explanations, voice interaction and Simple Mode for users who prefer a clearer, more accessible experience.",
 
     learnNavBack: "Back to Check",
-    learnBadge: "KNOWLEDGE BASE",
-    learnTitle: "Financial Fraud Patterns in Bharat",
-    learnSubtitle: "Understand how high-frequency financial schemes operate in India, their typical psychological hooks, red flags, and lawful regulatory guidelines.",
+    learnBadge: "HOW IT WORKS",
+    learnTitle: "How Verification Works",
+    learnSubtitle: "1 — Submit (Message, screenshot, website or voice) • 2 — Analyze (Detects suspicious claims and behavioral signals) • 3 — Verify (Checked against reliable evidence) • 4 — Understand (Trust Chain, evidence trail, Scam DNA) • 5 — Challenge (Test against alternative evidence) • 6 — Act Safely (Clear guidance on next steps).",
     viewRedFlagsAction: "View red flags",
     exploreArrow: "Explore →",
     howSchemeOperates: "How the scheme operates:",
@@ -493,12 +625,141 @@ export const TRANSLATIONS: Record<Language, UIStrings> = {
     continueButton: "Continue",
     enterParakhButton: "Enter PARAKH",
 
-    footerTagline: "Don’t just trust. Verify. — AI-powered financial content verification built for Bharat.",
-    footerStatutoryNoticeTitle: "Statutory Notice:",
-    footerStatutoryNoticeText: "PARAKH is an educational safety and content verification utility. PARAKH does NOT provide investment advice, buy/sell recommendations, stock tips, or guaranteed financial predictions. Pattern similarity with known fraud indicators does not constitute a definitive legal finding against any individual or corporate entity.",
-    footerCopyright: `© ${new Date().getFullYear()} PARAKH. Built for Indian Cyber Resilience & Citizen Protection.`,
-    footerHelplineText: "National Cyber Helpline: Dial 1930"
-  },
+    footerTagline: "Information moves fast. Verification should move with it. — PARAKH helps you understand what you're seeing before you decide what to do.",
+    footerStatutoryNoticeTitle: "Information moves fast. Verification should move with it.",
+    footerStatutoryNoticeText: "PARAKH helps you understand what you're seeing before you decide what to do. DON’T JUST TRUST. VERIFY.",
+    footerCopyright: `Built to protect, not persuade. Don’t just trust. Verify. © ${new Date().getFullYear()} PARAKH.`,
+    footerHelplineText: "National Cyber Helpline: Dial 1930",
+
+    trustChainBadge: "TRUST CHAIN RECONSTRUCTION",
+    trustChainTitle: "See where trust breaks.",
+    trustChainSubtitle: "PARAKH doesn't stop at the message. It reconstructs the relationships behind a financial claim — connecting organizations, websites, contacts, payment routes and evidence to reveal where the available proof becomes weak.",
+    couldNotVerify: "Could not independently verify.",
+    showHowYouKnow: "Show me how you know.",
+    aiDetected: "AI detected:",
+    evidenceChecked: "Evidence checked:",
+    result: "Result:",
+    aiAnalysisTab: "AI Analysis",
+    officialEvidenceTab: "Official Evidence",
+    communityEvidenceTab: "Community Evidence",
+
+    emergingPatternBadge: "COMMUNITY INTELLIGENCE",
+    emergingPatternTitle: "From individual reports to emerging patterns.",
+    emergingPatternDesc: "People can report suspicious experiences and share supporting evidence. PARAKH can identify recurring signals across reports and surface possible emerging scam patterns — while keeping community claims separate from verified facts.",
+    emergingPatternDisclaimer: "Community evidence adds context. It does not automatically prove fraud.",
+
+    communitySectionBadge: "COMMUNITY EVIDENCE",
+    communitySectionTitle: "Citizen Encounters & Reports",
+    communitySectionSubtitle: "Corroborating reports submitted by citizens across Bharat. Transparent distinction between first-hand reports and official records.",
+    communitySubmitReport: "Submit Community Report",
+    communityFirstHandBadge: "First-hand report",
+    communityEvidenceAttachedBadge: "Evidence attached",
+    communityClaimBadge: "Community claim",
+    communityOfficiallyVerifiedBadge: "Officially verified",
+    communityAiSummaryTitle: "AI Community Summary",
+    communityIEncounteredThis: "I personally encountered this content",
+    communityDisclaimer: "Community reports provide experiential pattern visibility without treating opinions as established facts.",
+    communityReportModalTitle: "Report Suspicious Financial Content",
+    communityReportCityLabel: "Your City / State (e.g. Bengaluru, KA)",
+    communityReportDescLabel: "What happened when you encountered this?",
+    communityReportEvidenceLabel: "Evidence attached note (e.g. UPI VPA, phone, screenshot)",
+    communityReportSubmitAction: "Publish to Community",
+    communityReportCancelAction: "Cancel",
+
+    simpleStopBeforeYouPay: "STOP BEFORE YOU PAY",
+    simpleMessageAsksMoney: "This message asks for money.",
+    simpleCouldNotVerifySender: "We could not verify who sent it.",
+    simpleCheckOfficialSite: "Check the organization using its official website.",
+    simpleDoNotShareOtpPin: "Do not share OTP, PIN or password.",
+
+    verdictHighRisk: "HIGH-RISK INDICATORS DETECTED",
+    verdictSomeConcerns: "SOME CONCERNS DETECTED",
+    verdictNoMajorRisk: "NO MAJOR RISK SIGNALS DETECTED",
+    verdictInsufficientEvidence: "INSUFFICIENT EVIDENCE",
+    finalParakhVerdict: "FINAL PARAKH VERDICT",
+    objectiveForensicAssessment: "Objective Forensic Assessment",
+    parakhCorePrinciple: "PARAKH Core Principle",
+    parakhPrincipleQuote: "“Here is what we found. Here is the evidence. Here is what remains uncertain. You decide.”",
+    parakhPrincipleSubtext: "Don’t just trust. Verify. — Built for Indian cyber safety and consumer financial resilience.",
+
+    pressureVectorsTitle: "Cognitive & Emotional Pressure Vectors (Intensity Mapping):",
+    statutoryPrefix: "Statutory:",
+    signalDetectedTag: "Detected",
+    signalClearTag: "Clear",
+
+    objectiveSynthesis: "Objective Synthesis",
+    recurringModusOperandi: "Recurring Modus Operandi:",
+    evidenceDiscrepanciesTitle: "Identified Evidence Discrepancies:",
+    viewInSelectedLang: "View in selected language",
+    viewOriginal: "View original submission",
+    claimChallengedTag: "Claim Challenged",
+    challengeClaimButton: "Challenge Claim",
+    evidenceNotePrefix: "Evidence note:",
+    regulatoryCheckPrefix: "Regulatory check:",
+    challengeRegisteredNotice: "A community dispute has been logged against this claim. PARAKH marks contested testimonies to prevent mob consensus from being confused with official verification.",
+
+    trustChainEntityNodes: "8 Entity Nodes",
+    trustChainInspectHint: "Click any node to inspect relationships & evidence",
+    nodeInspectionTitle: "Node Inspection:",
+    officialSourceChecked: "Official Source Checked:",
+    closeEvidenceAudit: "Close Evidence Audit",
+    distinctionLayersTitle: "Distinction of Evidence Layers (No AI as Official Evidence)",
+    evidenceAuditDisclaimer: "PARAKH does not fabricate regulatory approvals, user counts, or official registries. If external verification is unavailable, we explicitly state: “Could not independently verify.”",
+    independentAuditTag: "Independent regulatory audit",
+    reasoningBreakdown: "Reasoning & Evidence Breakdown",
+
+    whatContradictsTitle: "What Contradicts It",
+    statutoryRulesBadge: "Statutory Rules",
+    observedFactsBadge: "Observed Facts",
+
+    audioPlayingWave: "Reading section aloud...",
+    audioListenSection: "Listen to this section",
+    audioStopSection: "Stop reading",
+
+    outcomeContradictoryFound: "Contradictory evidence found",
+    outcomeContradictoryDesc: "Alternative legitimate hypothesis confirmed. PARAKH has revised its conclusion.",
+    outcomeInconclusive: "Evidence remains inconclusive",
+    outcomeInconclusiveDesc: "Available statutory records neither confirm nor disprove the claim with certainty.",
+    outcomeNoContradictory: "No reliable contradictory evidence found",
+    outcomeNoContradictoryDesc: "Statutory audit confirms the detected behavioral markers breach regulatory standards.",
+    challengeVerdictAdjustNotice: "Willing to adjust verdict when verified counter-evidence emerges.",
+    retestChallenge: "Re-test Challenge",
+    verdictUpdatedTag: "Verdict Updated",
+
+    matchingVectorsLabel: "matching vectors identified",
+    hideVectorsButton: "Hide Vectors",
+    inspectSharedVectorsButton: "Inspect Shared Vectors",
+    sharedCharacteristicsTitle: "Shared Characteristics Detected Across Submissions:",
+
+    // Upgraded Trust Chain Values
+    trustBreakTitle: "WHERE DOES THE TRUST BREAK?",
+    trustBreakSubtitle: "This is the point where the available evidence becomes weak.",
+    relationshipInspectionTitle: "RELATIONSHIP INSPECTION",
+    relationshipInspectionSubtitle: "Does this connection actually belong to the claimed entity?",
+    claimQuestionLabel: "Claim:",
+    evidenceCheckedLabel: "Evidence checked:",
+    findingLabel: "Finding:",
+    connectedEntitiesLabel: "connected entities",
+    evidenceGapsLabel: "evidence gaps",
+    suspiciousRelationshipsLabel: "suspicious relationships",
+    evidenceCoverageLimited: "Evidence coverage: Limited",
+    inspectRelationshipButton: "Inspect Relationship",
+    trustGapDetected: "Trust gap detected",
+    relationshipUnverified: "Unverified relationship",
+    mismatchDetected: "Mismatch detected",
+    officialSourceBadge: "Official source",
+    supportingEvidenceBadge: "Supporting evidence",
+    whereDoesTrustBreakQuestion: "Where does the trust break in this chain?",
+    clickToInspectNodeOrEdge: "Click node or connection pill",
+    statusLabel: "Status:",
+    closeInspection: "Close Inspection"
+};
+
+export const TRANSLATIONS: Record<Language, UIStrings> = {
+  // =========================================================================
+  // ENGLISH
+  // =========================================================================
+  en: enStrings,
 
   // =========================================================================
   // KANNADA (ಕನ್ನಡ)
@@ -515,17 +776,17 @@ export const TRANSLATIONS: Record<Language, UIStrings> = {
     logoutCta: "ಲಾಗ್‌ಔಟ್",
     privacyTooltip: "ವಿನ್ಯಾಸದಲ್ಲೇ ಗೌಪ್ಯತೆ",
 
-    heroTitlePart1: "ಕೇವಲ ನಂಬಬೇಡಿ.",
-    heroTitleVerify: "ಪರಿಶೀಲಿಸಿ.",
-    heroSubtitle: "ಭಾರತಕ್ಕಾಗಿ AI-ಚಾಲಿತ ಹಣಕಾಸು ವಿಷಯ ಪರಿಶೀಲನೆ.",
+    heroTitlePart1: "ನಂಬುವ ಮೊದಲು.",
+    heroTitleVerify: "PARAKH ಮಾಡಿ.",
+    heroSubtitle: "ಹಣಕಾಸಿನ ವಿಷಯವು ನಂಬಿಕೆಗಿಂತ ವೇಗವಾಗಿ ಹರಡುತ್ತದೆ. ಸಂದೇಶಗಳು, ಸ್ಕ್ರೀನ್‌ಶಾಟ್‌ಗಳು, ವೆಬ್‌ಸೈಟ್‌ಗಳು ಮತ್ತು ಧ್ವನಿಯನ್ನು ತನಿಖೆ ಮಾಡಲು — ಯಾವುದೇ ಕ್ರಮ ಕೈಗೊಳ್ಳುವ ಮೊದಲು ಪುರಾವೆಗಳನ್ನು ಪರಿಶೀಲಿಸಲು PARAKH ನಿಮಗೆ ಸಹಾಯ ಮಾಡುತ್ತದೆ.",
     heroGetStarted: "ಪ್ರಾರಂಭಿಸಿ",
     heroSeeHowItWorks: "ಇದು ಹೇಗೆ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತದೆ ನೋಡಿ",
-    heroCardBadge: "PARAKH ಪರಿಶೀಲನೆ",
-    heroCardWarningSignals: "ಎಚ್ಚರಿಕೆಯ ಸೂಚನೆಗಳು",
-    heroCardSignalsDesc: "ಖಾತರಿಯ ಲಾಭ, ಕೃತಕ ತುರ್ತು ಮತ್ತು ಅನಧಿಕೃತ ಖಾತೆಗಳ ವರ್ಗಾವಣೆಯಲ್ಲಿ ಪತ್ತೆಯಾಗಿದೆ",
-    heroCardAiSignals: "AI ಸಂಕೇತಗಳು",
-    heroCardEvidence: "ಸಾಕ್ಷ್ಯ",
-    heroCardVerification: "ಪರಿಶೀಲನೆ",
+    heroCardBadge: "TRUST CHAIN RECONSTRUCTION",
+    heroCardWarningSignals: "ಹಕ್ಕನ್ನು ಅನುಸರಿಸಿ. ಸಂಪರ್ಕವನ್ನು ಕಂಡುಕೊಳ್ಳಿ. ಪುರಾವೆ ಪರಿಶೀಲಿಸಿ.",
+    heroCardSignalsDesc: "PARAKH ಹಕ್ಕುಗಳು, ಸಂಸ್ಥೆಗಳು, ವೆಬ್‌ಸೈಟ್‌ಗಳು, ಸಂಪರ್ಕಗಳು ಮತ್ತು ಪಾವತಿ ಮಾರ್ಗಗಳನ್ನು ಪುರಾವೆಗಳೊಂದಿಗೆ ಜೋಡಿಸಿ — ಸರಪಳಿಯಲ್ಲಿ ಎಲ್ಲಿ ಅನುಮಾನವಿದೆ ಎಂಬುದನ್ನು ತೋರಿಸುತ್ತದೆ.",
+    heroCardAiSignals: "Trace",
+    heroCardEvidence: "Explain",
+    heroCardVerification: "Protect",
 
     inputHeading: "ನಿಮಗೆ ಏನು ಸಂದೇಶ ಬಂದಿದೆ?",
     inputSubtitle: "ನೀವು ಯಾವುದೇ ಕ್ರಮ ಕೈಗೊಳ್ಳುವ ಮೊದಲು ಅದನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಲು PARAKH ನಿಮಗೆ ಸಹಾಯ ಮಾಡುತ್ತದೆ.",
@@ -617,21 +878,21 @@ export const TRANSLATIONS: Record<Language, UIStrings> = {
     whatWeKnowBadge: "ಪರಿಶೀಲಿಸಿದ ಸಂಕೇತಗಳು",
     whatWeCouldNotVerifyBadge: "ಅಜ್ಞಾತ ಮಾಹಿತಿ",
 
-    challengeBadge: "AI ಪ್ರಾಮಾಣಿಕತೆಯ ಪರೀಕ್ಷೆ",
-    challengeTitle: "ಈ ಫಲಿತಾಂಶವನ್ನು ಪ್ರಶ್ನಿಸಿ",
-    challengeSubtitle: "PARAKH ತಾನು ಸರ್ವಜ್ಞ ಎಂದು ಹೇಳಿಕೊಳ್ಳುವುದಿಲ್ಲ. ಪರ್ಯಾಯ ವಿವರಣೆಗಳನ್ನು ಪರೀಕ್ಷಿಸಿ.",
-    challengeButton: "ಈ ತೀರ್ಮಾನ ತಪ್ಪು ಎಂದು ಸಾಬೀತುಪಡಿಸಲು ಪ್ರಯತ್ನಿಸಿ",
-    challengeTesting: "ಆರಂಭಿಕ ತೀರ್ಮಾನದಲ್ಲಿ ಯಾವುದೇ ತಪ್ಪು ಗ್ರಹಿಕೆಗಳಿವೆಯೇ ಎಂದು PARAKH ಪುನಃ ಪರಿಶೀಲಿಸುತ್ತಿದೆ...",
+    challengeBadge: "PARAKH ಗೆ ಸವಾಲು (CHALLENGE)",
+    challengeTitle: "ತೀರ್ಮಾನವನ್ನು ಪ್ರಶ್ನಿಸಿ / ಸವಾಲು ಮಾಡಿ.",
+    challengeSubtitle: "PARAKH ತಾನು ಯಾವಾಗಲೂ ಸರಿ ಎಂದು ಭಾವಿಸುವುದಿಲ್ಲ. ಬಳಕೆದಾರರು ವಿಶ್ಲೇಷಣೆಯನ್ನು ಸವಾಲು ಮಾಡಬಹುದು ಮತ್ತು ಪರ್ಯಾಯ ಪುರಾವೆಗಳನ್ನು ಹುಡುಕಬಹುದು.",
+    challengeButton: "ವಿರೋಧಾತ್ಮಕ ಪುರಾವೆಗಳನ್ನು ಹುಡುಕಿ",
+    challengeTesting: "ಆರಂಭಿಕ ತೀರ್ಮಾನದಲ್ಲಿ ಯಾವುದೇ ತಪ್ಪು ಗ್ರಹಿಕೆಗಳಿವೆಯೇ ಅಥವಾ ಕಾನೂನುಬದ್ಧ ವಿನಾಯಿತಿಗಳು ಅನ್ವಯಿಸುತ್ತವೆಯೇ ಎಂದು ಪರಿಶೀಲಿಸಲಾಗುತ್ತಿದೆ...",
     investigatingHypothesis: "ಪರಿಶೀಲಿಸಲಾದ ಪರ್ಯಾಯ ವಾದ:",
     legitimizingFound: "ಕಾನೂನುಬದ್ಧ ಸಾಧ್ಯತೆಗಳ ಪರಿಗಣನೆ:",
     contradictoryFound: "ವಿರುದ್ಧವಾದ ಶಾಸನಬದ್ಧ ಪುರಾವೆ:",
     updatedNuancedVerdict: "ಸಮಗ್ರ ಪರಿಶೀಲನಾ ತೀರ್ಮಾನ:",
     auditMaintained: "ತೀರ್ಮಾನವನ್ನು ಪ್ರಶ್ನಿಸಿ ಪುನಃ ಪರಿಶೀಲಿಸಲಾಗಿದೆ",
 
-    scamDnaBadge: "ನಡವಳಿಕೆಯ ಮಾದರಿ",
-    scamDnaTitle: "ವಂಚನೆಯ ಮಾದರಿ",
-    scamDnaSubtitle: "ಪತ್ತೆಯಾದ ನಡವಳಿಕೆಯ ಸಂಕೇತಗಳು",
-    scamDnaDisclaimer: "ಮಾದರಿ ಹೋಲಿಕೆಯು ಯಾವುದೇ ವ್ಯಕ್ತಿ ಅಥವಾ ಸಂಸ್ಥೆ ತಪ್ಪಿತಸ್ಥರೆಂದು ಕಾನೂನುಬದ್ಧವಾಗಿ ತೀರ್ಮಾನಿಸುವುದಿಲ್ಲ.",
+    scamDnaBadge: "SCAM DNA",
+    scamDnaTitle: "ಎಚ್ಚರಿಕೆಯನ್ನು ಮಾತ್ರವಲ್ಲ, ವಂಚನೆಯ ಮಾದರಿಯನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಿ.",
+    scamDnaSubtitle: "PARAKH ತುರ್ತು ಒತ್ತಡ, ಖಾತರಿ ಲಾಭ, ಸಂಸ್ಥೆಗಳ ಸೋಗು, ಪಾವತಿ ಒತ್ತಡ ಮತ್ತು ಫಿಶಿಂಗ್‌ನಂತಹ ನಡವಳಿಕೆಯ ಸಂಕೇತಗಳನ್ನು ಪತ್ತೆ ಮಾಡುತ್ತದೆ.",
+    scamDnaDisclaimer: "Scam DNA: ಪತ್ತೆಯಾದ ನಡವಳಿಕೆಯ ಮಾದರಿಗಳು — ನಕಲಿ “ವಂಚನೆಯ ಶೇಕಡಾವಾರು” ಸ್ಕೋರ್ ಅಲ್ಲ.",
     metricUrgency: "ತುರ್ತು ಒತ್ತಡ",
     metricGuaranteed: "ಖಾತರಿ ಲಾಭದ ಭರವಸೆ",
     metricAuthority: "ಸರ್ಕಾರಿ ಸಂಸ್ಥೆಗಳ ಹೆಸರಿನ ದುರುಪಯೋಗ",
@@ -646,24 +907,24 @@ export const TRANSLATIONS: Record<Language, UIStrings> = {
     aboutBadge: "PARAKH ಕುರಿತು",
     aboutTitlePart1: "ಕೇವಲ ನಂಬಬೇಡಿ.",
     aboutTitleVerify: "ಪರಿಶೀಲಿಸಿ.",
-    aboutDescription: "ಪರಖ್ (PARAKH) ಎಂದರೆ ಪರೀಕ್ಷೆ, ಸೂಕ್ಷ್ಮ ಪರಿಶೀಲನೆ ಮತ್ತು ದೃಢೀಕರಣ. ಇದು ಭಾರತದ ಭಾಷಾ ವೈವಿಧ್ಯತೆ ಮತ್ತು ನಾಗರಿಕರ ಹಣಕಾಸು ಸುರಕ್ಷತೆಗಾಗಿ ರೂಪಿಸಲಾದ AI ತಂತ್ರಜ್ಞಾನವಾಗಿದೆ.",
-    aboutWhyTitle: "PARAKH ಏಕೆ ಅಸ್ತಿತ್ವಕ್ಕೆ ಬಂದಿದೆ?",
-    aboutWhyP1: "ಭಾರತದಾದ್ಯಂತ ಪ್ರತಿದಿನ ಲಕ್ಷಾಂತರ ಜನರಿಗೆ 40% ಗ್ಯಾರಂಟಿ ಲಾಭ, ನಕಲಿ ಪ್ರಿ-ಐಪಿಒ ಹಂಚಿಕೆ ಮತ್ತು ಟಾಸ್ಕ್ ಹಗರಣಗಳ ಮೆಸೇಜ್‌ಗಳು ಬರುತ್ತವೆ. ವಂಚಕರು ಜನರ ನಂಬಿಕೆ, ಭಾಷಾ ಅಡೆತಡೆ ಮತ್ತು ಭಯವನ್ನು ದುರುಪಯೋಗಪಡಿಸಿಕೊಂಡು ಕಷ್ಟಪಟ್ಟು ಸಂಪಾದಿಸಿದ ಹಣವನ್ನು ಲಪಟಾಯಿಸುತ್ತಾರೆ.",
-    aboutWhyP2: "PARAKH ಯಾವುದೇ ತಂತ್ರಜ್ಞಾನವನ್ನು ಕುರುಡಾಗಿ ನಂಬಲು ಹೇಳುವುದಿಲ್ಲ. ಬದಲಾಗಿ, ಯಾವುದಾದರೂ ವಿಷಯ ಏಕೆ ಅನುಮಾನಾಸ್ಪದವಾಗಿದೆ ಎಂಬುದನ್ನು ಸಾಕ್ಷ್ಯ ಸಮೇತ ತೋರಿಸಿ, ಕಾನೂನು ನಿಯಮಗಳನ್ನು ತಿಳಿಸಿ ನಾಗರಿಕರಿಗೆ ರಕ್ಷಣೆ ನೀಡುತ್ತದೆ.",
-    pillar1Number: "01. ಬಲವಾದ ಸಾಕ್ಷ್ಯ",
-    pillar1Title: "ಶಾಸನಬದ್ಧ ನೋಂದಣಿಗಳು",
-    pillar1Desc: "ಸಾಮಾನ್ಯ ಇಂಟರ್ನೆಟ್ ಮಾಹಿತಿಯ ಬದಲು SEBI, RBI ಮತ್ತು MCA ನ ಅಧಿಕೃತ ದಾಖಲೆಗಳೊಂದಿಗೆ ಪರಿಶೀಲನೆ.",
-    pillar2Number: "02. ಭಾರತ-ಪ್ರಥಮ",
-    pillar2Title: "ಬಹುಭಾಷೆ ಮತ್ತು ಸರಳತೆ",
-    pillar2Desc: "ಹಿರಿಯರಿಗಾಗಿ ಸರಳ ಮೋಡ್ ಮತ್ತು ಧ್ವನಿ ಸೌಲಭ್ಯದೊಂದಿಗೆ ಕನ್ನಡ, ಹಿಂದಿ, ತೆಲುಗು ಮತ್ತು ಇಂಗ್ಲಿಷ್‌ನಲ್ಲಿ ಲಭ್ಯ.",
-    pillar3Number: "03. ಜವಾಬ್ದಾರಿಯುತ AI",
-    pillar3Title: "ಪ್ರಾಮಾಣಿಕ ವಿಶ್ಲೇಷಣೆ",
-    pillar3Desc: "ಸ್ಪಷ್ಟ ಸತ್ಯಗಳು ಮತ್ತು ಅಜ್ಞಾತ ವಿಷಯಗಳ ನಡುವೆ ವ್ಯತ್ಯಾಸ ಗುರುತಿಸಿ, ಫಲಿತಾಂಶವನ್ನು ಮರುಪರಿಶೀಲಿಸುವ ಅವಕಾಶ ನೀಡುತ್ತದೆ.",
+    aboutDescription: "PARAKH ಭಾರತಕ್ಕಾಗಿ ನಿರ್ಮಿಸಲಾದ AI-ಚಾಲಿತ ಹಣಕಾಸು ವಿಷಯ ಪರಿಶೀಲನಾ ವೇದಿಕೆಯಾಗಿದೆ. ಅನುಮಾನಾಸ್ಪದ ವಿಷಯದಿಂದ ಪುರಾವೆ ಆಧಾರಿತ ತಿಳುವಳಿಕೆಗೆ.",
+    aboutWhyTitle: "ರಕ್ಷಿಸಲು ನಿರ್ಮಿಸಲಾಗಿದೆ, ಮನವೊಲಿಸಲು ಅಲ್ಲ.",
+    aboutWhyP1: "PARAKH ಯಾವುದೇ ಖರೀದಿ, ಮಾರಾಟ ಅಥವಾ ಷೇರು ಶಿಫಾರಸುಗಳನ್ನು ನೀಡುವುದಿಲ್ಲ. ಇದು ಬಳಕೆದಾರರಿಂದ OTP, PIN ಅಥವಾ ಪಾಸ್‌ವರ್ಡ್‌ಗಳನ್ನು ಎಂದಿಗೂ ಕೇಳುವುದಿಲ್ಲ.",
+    aboutWhyP2: "ಇದರ ಉದ್ದೇಶ ಸರಳ: ಜನರು ಯಾವುದೇ ಕ್ರಮ ಕೈಗೊಳ್ಳುವ ಮೊದಲು ಸ್ವಲ್ಪ ನಿಲ್ಲಲು, ಪರಿಶೀಲಿಸಲು ಮತ್ತು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಲು ಸಹಾಯ ಮಾಡುವುದು.",
+    pillar1Number: "01. TRACE",
+    pillar1Title: "ನಂಬಿಕೆ ಎಲ್ಲಿ ಮುರಿಯುತ್ತದೆ ನೋಡಿ.",
+    pillar1Desc: "PARAKH ಕೇವಲ ಸಂದೇಶಕ್ಕೆ ಸೀಮಿತವಾಗುವುದಿಲ್ಲ. ಸಂಸ್ಥೆಗಳು, ವೆಬ್‌ಸೈಟ್‌ಗಳು, ಸಂಪರ್ಕಗಳು ಮತ್ತು ಪಾವತಿ ಮಾರ್ಗಗಳ ನಡುವಿನ ಸಂಬಂಧಗಳನ್ನು ಪುನರ್ನಿರ್ಮಿಸಿ, ಲಭ್ಯವಿರುವ ಸಾಕ್ಷ್ಯಗಳು ಎಲ್ಲಿ ದುರ್ಬಲಗೊಳ್ಳುತ್ತವೆ ಎಂಬುದನ್ನು ಬಹಿರಂಗಪಡಿಸುತ್ತದೆ.",
+    pillar2Number: "02. EXPLAIN",
+    pillar2Title: "ನಾವು ಹೇಗೆ ಕಂಡುಕೊಂಡೆವು ಎಂಬುದನ್ನು ನೋಡಿ.",
+    pillar2Desc: "ಯಾವುದೇ AI ಸ್ಕೋರ್ ಅನ್ನು ಕುರುಡಾಗಿ ನಂಬಲು PARAKH ಹೇಳುವುದಿಲ್ಲ. ಏನು ಪತ್ತೆಯಾಗಿದೆ, ಯಾವ ಪುರಾವೆಗಳು ಬೆಂಬಲಿಸುತ್ತವೆ, ಯಾವುದು ವಿರೋಧಿಸುತ್ತದೆ ಮತ್ತು ಯಾವುದನ್ನು ಸ್ವತಂತ್ರವಾಗಿ ಪರಿಶೀಲಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ ಎಂಬುದನ್ನು ಇದು ಸ್ಪಷ್ಟವಾಗಿ ತೋರಿಸುತ್ತದೆ.",
+    pillar3Number: "03. BHARAT-FIRST",
+    pillar3Title: "ನಿಮ್ಮ ಭಾಷೆಯಲ್ಲೇ ಪರಿಶೀಲನೆ.",
+    pillar3Desc: "PARAKH ಭಾರತಕ್ಕಾಗಿ ನಿರ್ಮಿಸಲ್ಪಟ್ಟಿದೆ — ಬಹುಭಾಷಾ ವಿಶ್ಲೇಷಣೆ, ಪ್ರಾದೇಶಿಕ ಭಾಷೆಯ ವಿವರಣೆಗಳು, ಧ್ವನಿ ಸಂವಹನ ಮತ್ತು ಸರಳ ಮೋಡ್‌ನೊಂದಿಗೆ ಪ್ರತಿಯೊಬ್ಬರಿಗೂ ಸುಲಭವಾಗಿ ಲಭ್ಯ.",
 
     learnNavBack: "ಪರಿಶೀಲನೆಗೆ ಹಿಂತಿರುಗಿ",
-    learnBadge: "ಮಾಹಿತಿ ಕೋಶ",
-    learnTitle: "ಭಾರತದಲ್ಲಿನ ಪ್ರಮುಖ ಹಣಕಾಸು ವಂಚನೆ ಮಾದರಿಗಳು",
-    learnSubtitle: "ಸಾಮಾನ್ಯವಾಗಿ ಕಂಡುಬರುವ ಹಗರಣಗಳು ಹೇಗೆ ನಡೆಯುತ್ತವೆ, ಅವುಗಳ ಬಲೆಗಳು, ಎಚ್ಚರಿಕೆಯ ಸೂಚನೆಗಳು ಮತ್ತು ಕಾನೂನು ನಿಯಮಗಳನ್ನು ತಿಳಿಯಿರಿ.",
+    learnBadge: "HOW IT WORKS",
+    learnTitle: "ಪರಿಶೀಲನೆ ಹೇಗೆ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತದೆ",
+    learnSubtitle: "1 — ಸಲ್ಲಿಸಿ (ಸಂದೇಶ, ಸ್ಕ್ರೀನ್‌ಶಾಟ್, ವೆಬ್‌ಸೈಟ್ ಅಥವಾ ಧ್ವನಿ) • 2 — ವಿಶ್ಲೇಷಿಸಿ (ಅಪಾಯದ ಸಂಕೇತಗಳನ್ನು ಪತ್ತೆ ಮಾಡುತ್ತದೆ) • 3 — ಪರಿಶೀಲಿಸಿ (ಲಭ್ಯವಿರುವ ವಿಶ್ವಾಸಾರ್ಹ ಪುರಾವೆಗಳೊಂದಿಗೆ ತಾಳೆ) • 4 — ಅರ್ಥಮಾಡಿಕೊಳ್ಳಿ (Trust Chain, ಸಾಕ್ಷ್ಯಗಳ ಹಾದಿ, Scam DNA) • 5 — ಸವಾಲು ಮಾಡಿ (ಪರ್ಯಾಯ ಪುರಾವೆಗಳನ್ನು ಪರೀಕ್ಷಿಸಿ) • 6 — ಸುರಕ್ಷಿತವಾಗಿರಿ (ಮುಂದಿನ ಕ್ರಮಗಳ ಸ್ಪಷ್ಟ ಮಾರ್ಗದರ್ಶನ).",
     viewRedFlagsAction: "ಎಚ್ಚರಿಕೆಯ ಚಿಹ್ನೆಗಳನ್ನು ನೋಡಿ",
     exploreArrow: "ತಿಳಿಯಿರಿ →",
     howSchemeOperates: "ಈ ವಂಚನೆ ಹೇಗೆ ನಡೆಯುತ್ತದೆ:",
@@ -735,11 +996,134 @@ export const TRANSLATIONS: Record<Language, UIStrings> = {
     continueButton: "ಮುಂದುವರಿಯಿರಿ",
     enterParakhButton: "PARAKH ಪ್ರವೇಶಿಸಿ",
 
-    footerTagline: "ಕೇವಲ ನಂಬಬೇಡಿ. ಪರಿಶೀಲಿಸಿ. — ಭಾರತಕ್ಕಾಗಿ ನಿರ್ಮಿಸಲಾದ AI-ಚಾಲಿತ ಹಣಕಾಸು ವಿಷಯ ಪರಿಶೀಲನೆ.",
-    footerStatutoryNoticeTitle: "ಶಾಸನಬದ್ಧ ಎಚ್ಚರಿಕೆ:",
-    footerStatutoryNoticeText: "PARAKH ಒಂದು ಶೈಕ್ಷಣಿಕ ಸುರಕ್ಷತೆ ಮತ್ತು ವಿಷಯ ಪರಿಶೀಲನಾ ವೇದಿಕೆಯಾಗಿದೆ. PARAKH ಯಾವುದೇ ಹೂಡಿಕೆ ಸಲಹೆ, ಖರೀದಿ/ಮಾರಾಟ ಶಿಫಾರಸು ಅಥವಾ ಷೇರು ಟಿಪ್ಸ್‌ಗಳನ್ನು ನೀಡುವುದಿಲ್ಲ. ವಂಚನೆಯ ಮಾದರಿಗಳೊಂದಿಗಿನ ಹೋಲಿಕೆಯು ಯಾವುದೇ ವ್ಯಕ್ತಿ ಅಥವಾ ಸಂಸ್ಥೆಯ ವಿರುದ್ಧ ಅಂತಿಮ ಕಾನೂನು ತೀರ್ಪಾಗಿರುವುದಿಲ್ಲ.",
-    footerCopyright: `© ${new Date().getFullYear()} PARAKH. ಭಾರತೀಯ ಸೈಬರ್ ಸುರಕ್ಷತೆ ಮತ್ತು ನಾಗರಿಕರ ರಕ್ಷಣೆಗಾಗಿ ನಿರ್ಮಿಸಲಾಗಿದೆ.`,
-    footerHelplineText: "ರಾಷ್ಟ್ರೀಯ ಸೈಬರ್ ಹೆಲ್ಪ್‌ಲೈನ್: 1930 ಗೆ ಕರೆ ಮಾಡಿ"
+    footerTagline: "ಮಾಹಿತಿ ವೇಗವಾಗಿ ಹರಿಯುತ್ತದೆ. ಪರಿಶೀಲನೆಯೂ ಅದರೊಂದಿಗೆ ಸಾಗಬೇಕು. — ನೀವು ಕ್ರಮ ಕೈಗೊಳ್ಳುವ ಮೊದಲು ಏನು ನೋಡುತ್ತಿದ್ದೀರಿ ಎಂಬುದನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಲು PARAKH ಸಹಾಯ ಮಾಡುತ್ತದೆ.",
+    footerStatutoryNoticeTitle: "ಮಾಹಿತಿ ವೇಗವಾಗಿ ಹರಿಯುತ್ತದೆ. ಪರಿಶೀಲನೆಯೂ ಅದರೊಂದಿಗೆ ಸಾಗಬೇಕು.",
+    footerStatutoryNoticeText: "ನೀವು ಕ್ರಮ ಕೈಗೊಳ್ಳುವ ಮೊದಲು ಏನು ನೋಡುತ್ತಿದ್ದೀರಿ ಎಂಬುದನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಲು PARAKH ಸಹಾಯ ಮಾಡುತ್ತದೆ. ಕೇವಲ ನಂಬಬೇಡಿ. ಪರಿಶೀಲಿಸಿ.",
+    footerCopyright: `ರಕ್ಷಿಸಲು ನಿರ್ಮಿಸಲಾಗಿದೆ, ಮನವೊಲಿಸಲು ಅಲ್ಲ. ಕೇವಲ ನಂಬಬೇಡಿ. ಪರಿಶೀಲಿಸಿ. © ${new Date().getFullYear()} PARAKH.`,
+    footerHelplineText: "ರಾಷ್ಟ್ರೀಯ ಸೈಬರ್ ಹೆಲ್ಪ್‌ಲೈನ್: 1930 ಗೆ ಕರೆ ಮಾಡಿ",
+
+    trustChainBadge: "ನಂಬಿಕೆಯ ಸರಪಳಿ ಪುನರ್ನಿರ್ಮಾಣ (Trust Chain)",
+    trustChainTitle: "ನಂಬಿಕೆ ಎಲ್ಲಿ ಮುರಿಯುತ್ತದೆ ನೋಡಿ.",
+    trustChainSubtitle: "PARAKH ಕೇವಲ ಸಂದೇಶಕ್ಕೆ ಸೀಮಿತವಾಗುವುದಿಲ್ಲ. ಹಣಕಾಸು ಹಕ್ಕಿನ ಹಿಂದಿನ ಸಂಬಂಧಗಳನ್ನು ಪುನರ್ನಿರ್ಮಿಸಿ, ಲಭ್ಯವಿರುವ ಸಾಕ್ಷ್ಯಗಳು ಎಲ್ಲಿ ದುರ್ಬಲಗೊಳ್ಳುತ್ತವೆ ಎಂಬುದನ್ನು ಬಹಿರಂಗಪಡಿಸುತ್ತದೆ.",
+    couldNotVerify: "ಸ್ವತಂತ್ರವಾಗಿ ಪರಿಶೀಲಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.",
+    showHowYouKnow: "ನಾವು ಹೇಗೆ ಕಂಡುಕೊಂಡೆವು ಎಂಬುದನ್ನು ನೋಡಿ.",
+    aiDetected: "AI ಪತ್ತೆಹಚ್ಚಿದ್ದು:",
+    evidenceChecked: "ಪರಿಶೀಲಿಸಿದ ಸಾಕ್ಷ್ಯಗಳು:",
+    result: "ಫಲಿತಾಂಶ:",
+    aiAnalysisTab: "AI ವಿಶ್ಲೇಷಣೆ",
+    officialEvidenceTab: "ಅಧಿಕೃತ ಸಾಕ್ಷ್ಯಗಳು",
+    communityEvidenceTab: "ಸಮುದಾಯ ಸಾಕ್ಷ್ಯಗಳು",
+
+    emergingPatternBadge: "ಸಮುದಾಯ ಗುಪ್ತಚರ (Community Intelligence)",
+    emergingPatternTitle: "ವೈಯಕ್ತಿಕ ವರದಿಗಳಿಂದ ಹೊರಹೊಮ್ಮುತ್ತಿರುವ ಮಾದರಿಗಳಿಗೆ.",
+    emergingPatternDesc: "ನಾಗರಿಕರು ಅನುಮಾನಾಸ್ಪದ ಅನುಭವಗಳನ್ನು ವರದಿ ಮಾಡಬಹುದು. PARAKH ಮರುಕಳಿಸುವ ಸಂಕೇತಗಳನ್ನು ಗುರುತಿಸುತ್ತದೆ ಮತ್ತು ಸತ್ಯಾಸತ್ಯತೆಗಳನ್ನು ಪ್ರತ್ಯೇಕವಾಗಿರಿಸುತ್ತದೆ.",
+    emergingPatternDisclaimer: "ಸಮುದಾಯ ಪುರಾವೆಗಳು ಸಹಾಯಕ ಸಂದರ್ಭವನ್ನು ನೀಡುತ್ತವೆ. ಅವು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ವಂಚನೆಯನ್ನು ಸಾಬೀತುಪಡಿಸುವುದಿಲ್ಲ.",
+
+    communitySectionBadge: "ಸಮುದಾಯ ಸಾಕ್ಷ್ಯಗಳು",
+    communitySectionTitle: "ನಾಗರಿಕರ ಅನುಭವಗಳು ಮತ್ತು ವರದಿಗಳು",
+    communitySectionSubtitle: "ಭಾರತದಾದ್ಯಂತ ನಾಗರಿಕರು ಹಂಚಿಕೊಂಡ ದೃಢೀಕರಣಗಳು. ಪ್ರತ್ಯಕ್ಷ ವರದಿಗಳು ಮತ್ತು ಅಧಿಕೃತ ದಾಖಲೆಗಳ ನಡುವೆ ಸ್ಪಷ್ಟ ವ್ಯತ್ಯಾಸ.",
+    communitySubmitReport: "ಸಮುದಾಯ ವರದಿ ಸಲ್ಲಿಸಿ",
+    communityFirstHandBadge: "ಪ್ರತ್ಯಕ್ಷ ವರದಿ",
+    communityEvidenceAttachedBadge: "ಸಾಕ್ಷ್ಯ ಲಗತ್ತಿಸಲಾಗಿದೆ",
+    communityClaimBadge: "ಸಮುದಾಯದ ಹಕ್ಕು",
+    communityOfficiallyVerifiedBadge: "ಅಧಿಕೃತವಾಗಿ ಪರಿಶೀಲಿಸಲಾಗಿದೆ",
+    communityAiSummaryTitle: "AI ಸಮುದಾಯ ಸಾರಾಂಶ",
+    communityIEncounteredThis: "ನನಗೂ ಇಂತಹದ್ದೇ ಸಂದೇಶ ಬಂದಿತ್ತು",
+    communityDisclaimer: "ಸಮುದಾಯ ವರದಿಗಳು ನಾಗರಿಕರ ಜಾಗೃತಿಗಾಗಿ ಮಾತ್ರ.",
+    communityReportModalTitle: "ಅನುಮಾನಾಸ್ಪದ ಹಣಕಾಸು ಸಂದೇಶವನ್ನು ವರದಿ ಮಾಡಿ",
+    communityReportCityLabel: "ನಿಮ್ಮ ಊರು / ರಾಜ್ಯ",
+    communityReportDescLabel: "ನಿಮಗೆ ಎದುರಾದ ಅನುಭವವನ್ನು ವಿವರಿಸಿ",
+    communityReportEvidenceLabel: "ಸಾಕ್ಷ್ಯದ ಮಾಹಿತಿ (UPI, ಫೋನ್, ಸ್ಕ್ರೀನ್‌ಶಾಟ್)",
+    communityReportSubmitAction: "ಸಮುದಾಯಕ್ಕೆ ಪ್ರಕಟಿಸಿ",
+    communityReportCancelAction: "ರದ್ದುಮಾಡಿ",
+
+    simpleStopBeforeYouPay: "ಹಣ ಪಾವತಿಸುವ ಮುನ್ನ ನಿಲ್ಲಿ",
+    simpleMessageAsksMoney: "ಈ ಸಂದೇಶವು ಹಣ ಕೇಳುತ್ತಿದೆ.",
+    simpleCouldNotVerifySender: "ಇದನ್ನು ಯಾರು ಕಳುಹಿಸಿದ್ದಾರೆ ಎಂಬುದನ್ನು ನಾವು ದೃಢೀಕರಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.",
+    simpleCheckOfficialSite: "ಅಧಿಕೃತ ವೆಬ್‌ಸೈಟ್ ಮೂಲಕ ಸಂಸ್ಥೆಯನ್ನು ನೇರವಾಗಿ ಪರಿಶೀಲಿಸಿ.",
+    simpleDoNotShareOtpPin: "OTP, PIN ಅಥವಾ ಪಾಸ್‌ವರ್ಡ್ ಅನ್ನು ಯಾರೊಂದಿಗೂ ಹಂಚಿಕೊಳ್ಳಬೇಡಿ.",
+
+    verdictHighRisk: "ಹೆಚ್ಚಿನ ಅಪಾಯದ ಸೂಚನೆಗಳು ಕಂಡುಬಂದಿವೆ",
+    verdictSomeConcerns: "ಕೆಲವು ಅನುಮಾನಾಸ್ಪದ ಸಂಕೇತಗಳಿವೆ",
+    verdictNoMajorRisk: "ಯಾವುದೇ ಪ್ರಮುಖ ಅಪಾಯದ ಸಂಕೇತಗಳಿಲ್ಲ",
+    verdictInsufficientEvidence: "ಸಾಕಷ್ಟು ಸಾಕ್ಷ್ಯಗಳಿಲ್ಲ",
+    finalParakhVerdict: "ಅಂತಿಮ ಪರಖ್ (PARAKH) ತೀರ್ಪು",
+    objectiveForensicAssessment: "ವಸ್ತುನಿಷ್ಠ ಫೋರೆನ್ಸಿಕ್ ಮೌಲ್ಯಮಾಪನ",
+    parakhCorePrinciple: "PARAKH ಮೂಲ ತತ್ವ",
+    parakhPrincipleQuote: "“ನಾವು ಕಂಡುಕೊಂಡದ್ದು ಇಲ್ಲಿದೆ. ಸಾಕ್ಷ್ಯಗಳು ಇಲ್ಲಿವೆ. ಅನಿಶ್ಚಿತವಾಗಿರುವುದು ಇಲ್ಲಿದೆ. ನೀವೇ ನಿರ್ಧರಿಸಿ.”",
+    parakhPrincipleSubtext: "ಕೇವಲ ನಂಬಬೇಡಿ. ಪರಿಶೀಲಿಸಿ. — ಭಾರತೀಯ ನಾಗರಿಕರ ಆರ್ಥಿಕ ಸುರಕ್ಷತೆಗಾಗಿ ನಿರ್ಮಿಸಲಾಗಿದೆ.",
+
+    pressureVectorsTitle: "ಮಾನಸಿಕ ಮತ್ತು ಭಾವನಾತ್ಮಕ ಒತ್ತಡದ ತಂತ್ರಗಳು (ತೀವ್ರತೆ ಮ್ಯಾಪಿಂಗ್):",
+    statutoryPrefix: "ಶಾಸನಬದ್ಧ ನಿಯಮ:",
+    signalDetectedTag: "ಪತ್ತೆಯಾಗಿದೆ",
+    signalClearTag: "ಸ್ಪಷ್ಟವಾಗಿದೆ",
+
+    objectiveSynthesis: "ವಸ್ತುನಿಷ್ಠ ಸಂಶ್ಲೇಷಣೆ",
+    recurringModusOperandi: "ಮರುಕಳಿಸುವ ವಂಚನೆ ತಂತ್ರಗಳು (Modus Operandi):",
+    evidenceDiscrepanciesTitle: "ಗುರುತಿಸಲಾದ ಸಾಕ್ಷ್ಯಗಳ ಅಸಂಗತತೆಗಳು:",
+    viewInSelectedLang: "ಕನ್ನಡದಲ್ಲಿ ನೋಡಿ",
+    viewOriginal: "ಮೂಲ ಸಂದೇಶ ನೋಡಿ",
+    claimChallengedTag: "ಹಕ್ಕನ್ನು ಸವಾಲು ಮಾಡಲಾಗಿದೆ",
+    challengeClaimButton: "ಹಕ್ಕನ್ನು ಸವಾಲು ಮಾಡಿ",
+    evidenceNotePrefix: "ಸಾಕ್ಷ್ಯದ ಟಿಪ್ಪಣಿ:",
+    regulatoryCheckPrefix: "ನಿಯಂತ್ರಕ ಪರಿಶೀಲನೆ:",
+    challengeRegisteredNotice: "ಈ ಹಕ್ಕಿನ ವಿರುದ್ಧ ಸಮುದಾಯ ವಿವಾದ ದಾಖಲಾಗಿದೆ. ಬಹುಮತವನ್ನು ಸತ್ಯವೆಂದು ತಪ್ಪಾಗಿ ಭಾವಿಸುವುದನ್ನು ತಡೆಯಲು PARAKH ಇದನ್ನು ಗುರುತಿಸುತ್ತದೆ.",
+
+    trustChainEntityNodes: "8 ಲಿಂಕ್ ನೋಡ್‌ಗಳು",
+    trustChainInspectHint: "ಸಂಬಂಧಗಳು ಮತ್ತು ಸಾಕ್ಷ್ಯಗಳನ್ನು ವೀಕ್ಷಿಸಲು ಯಾವುದೇ ನೋಡ್ ಕ್ಲಿಕ್ ಮಾಡಿ",
+    nodeInspectionTitle: "ನೋಡ್ ಪರಿಶೀಲನೆ:",
+    officialSourceChecked: "ಪರಿಶೀಲಿಸಲಾದ ಅಧಿಕೃತ ಮೂಲ:",
+    closeEvidenceAudit: "ಸಾಕ್ಷ್ಯಗಳ ಪರಿಶೀಲನೆ ಮುಚ್ಚಿ",
+    distinctionLayersTitle: "ಸಾಕ್ಷ್ಯಗಳ ಹಂತಗಳ ವ್ಯತ್ಯಾಸ (AI ಊಹೆ ಅಧಿಕೃತ ಸಾಕ್ಷ್ಯವಲ್ಲ)",
+    evidenceAuditDisclaimer: "PARAKH ನಿಯಂತ್ರಕ ಅನುಮೋದನೆಗಳು, ಬಳಕೆದಾರರ ಸಂಖ್ಯೆ ಅಥವಾ ಅಧಿಕೃತ ರಿಜಿಸ್ಟ್ರಿಗಳನ್ನು ಸೃಷ್ಟಿಸುವುದಿಲ್ಲ. ಲಭ್ಯವಿಲ್ಲದಿದ್ದರೆ ಸ್ಪಷ್ಟವಾಗಿ: “ಸ್ವತಂತ್ರವಾಗಿ ಪರಿಶೀಲಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ” ಎಂದು ಹೇಳುತ್ತದೆ.",
+    independentAuditTag: "ಸ್ವತಂತ್ರ ನಿಯಂತ್ರಕ ಪರಿಶೀಲನೆ",
+    reasoningBreakdown: "ಕಾರಣ ಮತ್ತು ಸಾಕ್ಷ್ಯಗಳ ವಿವರವಾದ ವಿಶ್ಲೇಷಣೆ",
+
+    whatContradictsTitle: "ಇದಕ್ಕೆ ವಿರುದ್ಧವಾಗಿರುವ ಶಾಸನಬದ್ಧ ನಿಯಮಗಳು",
+    statutoryRulesBadge: "ಶಾಸನಬದ್ಧ ನಿಯಮಗಳು",
+    observedFactsBadge: "ಗಮನಿಸಿದ ಸತ್ಯಾಂಶಗಳು",
+
+    audioPlayingWave: "ಈ ವಿಭಾಗವನ್ನು ಓದಲಾಗುತ್ತಿದೆ...",
+    audioListenSection: "ಈ ವಿಭಾಗವನ್ನು ಆಲಿಸಿ",
+    audioStopSection: "ಓದುವುದನ್ನು ನಿಲ್ಲಿಸಿ",
+
+    outcomeContradictoryFound: "ವಿರೋಧಾತ್ಮಕ ಪುರಾವೆಗಳು ಕಂಡುಬಂದಿವೆ",
+    outcomeContradictoryDesc: "ಪರ್ಯಾಯ ಕಾನೂನುಬದ್ಧ ಸಮರ್ಥನೆ ದೃಢಪಟ್ಟಿದೆ. PARAKH ತನ್ನ ತೀರ್ಮಾನವನ್ನು ಪರಿಷ್ಕರಿಸಿದೆ.",
+    outcomeInconclusive: "ಪುರಾವೆಗಳು ಅನಿರ್ದಿಷ್ಟವಾಗಿ ಉಳಿದಿವೆ",
+    outcomeInconclusiveDesc: "ಲಭ್ಯವಿರುವ ದಾಖಲೆಗಳು ಹಕ್ಕನ್ನು ದೃಢಪಡಿಸುವುದಿಲ್ಲ ಅಥವಾ ನಿರಾಕರಿಸುವುದಿಲ್ಲ.",
+    outcomeNoContradictory: "ಯಾವುದೇ ವಿಶ್ವಾಸಾರ್ಹ ವಿರೋಧಾತ್ಮಕ ಪುರಾವೆಗಳು ಕಂಡುಬಂದಿಲ್ಲ",
+    outcomeNoContradictoryDesc: "ಶಾಸನಬದ್ಧ ಪರಿಶೀಲನೆಯು ಪತ್ತೆಯಾದ ನಡವಳಿಕೆಯ ಲಕ್ಷಣಗಳು ನಿಯಂತ್ರಕ ಮಾನದಂಡಗಳನ್ನು ಉಲ್ಲಂಘಿಸಿವೆ ಎಂದು ದೃಢಪಡಿಸುತ್ತದೆ.",
+    challengeVerdictAdjustNotice: "ಪರಿಶೀಲಿಸಿದ ಹೊಸ ಪುರಾವೆಗಳು ಹೊರಬಂದಾಗ ತೀರ್ಪನ್ನು ಸರಿಹೊಂದಿಸಲು ಸಿದ್ಧವಾಗಿದೆ.",
+    retestChallenge: "ಮರು-ಪರೀಕ್ಷಿಸಿ",
+    verdictUpdatedTag: "ತೀರ್ಪು ನವೀಕರಿಸಲಾಗಿದೆ",
+
+    matchingVectorsLabel: "ಹೊಂದಾಣಿಕೆಯ ವೆಕ್ಟರ್‌ಗಳು ಪತ್ತೆಯಾಗಿವೆ",
+    hideVectorsButton: "ವೆಕ್ಟರ್‌ಗಳನ್ನು ಮರೆಮಾಡಿ",
+    inspectSharedVectorsButton: "ಹಂಚಿಕೆಯ ವೆಕ್ಟರ್‌ಗಳನ್ನು ಪರಿಶೀಲಿಸಿ",
+    sharedCharacteristicsTitle: "ಸಲ್ಲಿಕೆಗಳಲ್ಲಿ ಕಂಡುಬಂದ ಹಂಚಿಕೆಯ ಗುಣಲಕ್ಷಣಗಳು:",
+
+    // Upgraded Trust Chain Values
+    trustBreakTitle: "ನಂಬಿಕೆ ಎಲ್ಲಿ ಮುರಿಯುತ್ತದೆ?",
+    trustBreakSubtitle: "ಲಭ್ಯವಿರುವ ಪುರಾವೆಗಳು ದುರ್ಬಲಗೊಳ್ಳುವ ಪ್ರಮುಖ ಬಿಂದು.",
+    relationshipInspectionTitle: "ಸಂಬಂಧ ಪರಿಶೀಲನೆ (RELATIONSHIP INSPECTION)",
+    relationshipInspectionSubtitle: "ಈ ಸಂಪರ್ಕವು ವಾಸ್ತವವಾಗಿ ಹೇಳಲಾದ ಘಟಕಕ್ಕೆ ಸೇರಿದೆಯೇ?",
+    claimQuestionLabel: "ಹಕ್ಕು/ಪ್ರಸ್ತಾಪ:",
+    evidenceCheckedLabel: "ಪರಿಶೀಲಿಸಿದ ಸಾಕ್ಷ್ಯಗಳು:",
+    findingLabel: "ಪರಿಶೀಲನೆ ಫಲಿತಾಂಶ:",
+    connectedEntitiesLabel: "ಸಂಪರ್ಕಿತ ಘಟಕಗಳು",
+    evidenceGapsLabel: "ಸಾಕ್ಷ್ಯದ ಅಂತರಗಳು",
+    suspiciousRelationshipsLabel: "ಅನುಮಾನಾಸ್ಪದ ಸಂಬಂಧಗಳು",
+    evidenceCoverageLimited: "ಸಾಕ್ಷ್ಯ ವ್ಯಾಪ್ತಿ: ಸೀಮಿತ",
+    inspectRelationshipButton: "ಸಂಬಂಧ ಪರಿಶೀಲಿಸಿ",
+    trustGapDetected: "ನಂಬಿಕೆಯ ಅಂತರ ಪತ್ತೆಯಾಗಿದೆ",
+    relationshipUnverified: "ದೃಢೀಕರಿಸದ ಸಂಬಂಧ",
+    mismatchDetected: "ಹೊಂದಾಣಿಕೆಯಿಲ್ಲದಿರುವುದು ಪತ್ತೆಯಾಗಿದೆ",
+    officialSourceBadge: "ಅಧಿಕೃತ ಮೂಲ",
+    supportingEvidenceBadge: "ಪೂರಕ ಪುರಾವೆ",
+    whereDoesTrustBreakQuestion: "ಈ ಸರಪಳಿಯಲ್ಲಿ ಪುರಾವೆಗಳು ಎಲ್ಲಿ ದುರ್ಬಲಗೊಳ್ಳುತ್ತವೆ?",
+    clickToInspectNodeOrEdge: "ನೋಡ್ ಅಥವಾ ಕನೆಕ್ಟರ್ ಕ್ಲಿಕ್ ಮಾಡಿ",
+    statusLabel: "ಸ್ಥಿತಿ:",
+    closeInspection: "ಪರಿಶೀಲನೆ ಮುಚ್ಚಿ"
   },
 
   // =========================================================================
@@ -757,17 +1141,17 @@ export const TRANSLATIONS: Record<Language, UIStrings> = {
     logoutCta: "लॉग आउट",
     privacyTooltip: "गोपनीयता सर्वप्रथम",
 
-    heroTitlePart1: "सिर्फ भरोसा न करें।",
-    heroTitleVerify: "जाँचें।",
-    heroSubtitle: "भारत के लिए AI-संचालित वित्तीय सामग्री सत्यापन।",
+    heroTitlePart1: "विश्वास करने से पहले।",
+    heroTitleVerify: "PARAKH करें।",
+    heroSubtitle: "वित्तीय सामग्री भरोसे से भी तेज़ चलती है। PARAKH संदिग्ध संदेशों, स्क्रीनशॉट, वेबसाइटों और ऑडियो इनपुट की जाँच करने में मदद करता है — कोई भी कदम उठाने से पहले दावों को उनके सबूतों से जोड़कर।",
     heroGetStarted: "शुरू करें",
     heroSeeHowItWorks: "यह कैसे काम करता है देखें",
-    heroCardBadge: "PARAKH सत्यापन",
-    heroCardWarningSignals: "चेतावनी संकेत",
-    heroCardSignalsDesc: "गारंटीड रिटर्न, कृत्रिम जल्दबाजी और अनधिकृत खातों में पहचान की गई",
-    heroCardAiSignals: "AI संकेत",
-    heroCardEvidence: "प्रमाण",
-    heroCardVerification: "सत्यापन",
+    heroCardBadge: "TRUST CHAIN RECONSTRUCTION",
+    heroCardWarningSignals: "दावे का अनुसरण करें। संबंध खोजें। सबूत की जाँच करें।",
+    heroCardSignalsDesc: "PARAKH दावों, संगठनों, वेबसाइटों, संपर्कों, भुगतान मार्गों और साक्ष्यों को जोड़ता है — फिर दिखाता है कि श्रृंखला कहाँ अनिश्चित हो जाती है।",
+    heroCardAiSignals: "Trace",
+    heroCardEvidence: "Explain",
+    heroCardVerification: "Protect",
 
     inputHeading: "आपको क्या प्राप्त हुआ?",
     inputSubtitle: "कोई भी कदम उठाने से पहले PARAKH आपको इसे समझने और सत्यापित करने में मदद करता है।",
@@ -859,21 +1243,21 @@ export const TRANSLATIONS: Record<Language, UIStrings> = {
     whatWeKnowBadge: "सत्यापित तथ्य",
     whatWeCouldNotVerifyBadge: "अज्ञात जानकारी",
 
-    challengeBadge: "AI निष्पक्षता परीक्षण",
-    challengeTitle: "इस परिणाम को चुनौती दें",
-    challengeSubtitle: "PARAKH सर्वज्ञ होने का दावा नहीं करता। वैकल्पिक संभावनाओं की जांच करें।",
-    challengeButton: "इस मूल्यांकन को गलत साबित करने का प्रयास करें",
-    challengeTesting: "प्रारंभिक मूल्यांकन में किसी संभावित भ्रम या अपवाद की जांच की जा रही है...",
+    challengeBadge: "PARAKH को चुनौती (CHALLENGE)",
+    challengeTitle: "परिणाम को चुनौती दें।",
+    challengeSubtitle: "PARAKH हमेशा खुद से सहमत होने के लिए नहीं बनाया गया है। उपयोगकर्ता विश्लेषण को चुनौती दे सकते हैं और विरोधाभासी या वैकल्पिक साक्ष्य खोज सकते हैं।",
+    challengeButton: "विरोधाभासी साक्ष्य खोजें",
+    challengeTesting: "प्रारंभिक मूल्यांकन में किसी संभावित भ्रम या वैधानिक अपवादों की जांच की जा रही है...",
     investigatingHypothesis: "जाँचा गया वैकल्पिक तर्क:",
     legitimizingFound: "वैध संभावनाओं का विचार:",
     contradictoryFound: "विरोधी वैधानिक प्रमाण:",
     updatedNuancedVerdict: "विस्तृत समीक्षा निष्कर्ष:",
     auditMaintained: "मूल्यांकन की पुनः समीक्षा की गई",
 
-    scamDnaBadge: "व्यवहार पैटर्न",
-    scamDnaTitle: "धोखाधड़ी का पैटर्न",
-    scamDnaSubtitle: "पहचाने गए व्यवहार संबंधी संकेत",
-    scamDnaDisclaimer: "पैटर्न समानता से यह कानूनी रूप से साबित नहीं होता कि कोई व्यक्ति या संस्था धोखेबाज है।",
+    scamDnaBadge: "SCAM DNA",
+    scamDnaTitle: "पैटर्न को समझें, सिर्फ चेतावनी को नहीं।",
+    scamDnaSubtitle: "PARAKH जल्दबाजी का दबाव, गारंटीड रिटर्न, संस्थागत प्रतिरूपण, भुगतान दबाव और फ़िशिंग जैसे व्यवहारिक संकेतों की पहचान करता है।",
+    scamDnaDisclaimer: "Scam DNA: पहचाने गए व्यवहार संबंधी पैटर्न — कोई फर्जी “घोटाला संभावना प्रतिशत” स्कोर नहीं।",
     metricUrgency: "जल्दबाजी का दबाव",
     metricGuaranteed: "निश्चित रिटर्न के दावे",
     metricAuthority: "नियामक संस्थाओं के नाम का दुरुपयोग",
@@ -888,24 +1272,24 @@ export const TRANSLATIONS: Record<Language, UIStrings> = {
     aboutBadge: "PARAKH के बारे में",
     aboutTitlePart1: "सिर्फ भरोसा न करें।",
     aboutTitleVerify: "जाँचें।",
-    aboutDescription: "परख (PARAKH) का अर्थ है परीक्षा, बारीकी से जांच और सत्यापन। यह भारत की भाषाई विविधता और वित्तीय सुरक्षा के लिए निर्मित एक AI तकनीक है।",
-    aboutWhyTitle: "PARAKH क्यों मौजूद है?",
-    aboutWhyP1: "भारत में हर दिन लाखों नागरिकों को 40% गारंटीड मुनाफे, फर्जी प्री-आईपीओ आवंटन और टास्क घोटालों के संदेश आते हैं। धोखेबाज विश्वास, भाषा और डर का फायदा उठाकर लोगों की मेहनत की कमाई छीन लेते हैं।",
-    aboutWhyP2: "PARAKH आपको किसी तकनीक पर आँख मूँदकर विश्वास करने को नहीं कहता। इसके बजाय, यह दिखाता है कि कोई चीज संदिग्ध क्यों है, कानून क्या कहता है, और आप अपने पैसे की सुरक्षा कैसे कर सकते हैं।",
-    pillar1Number: "01. ठोस प्रमाण",
-    pillar1Title: "वैधानिक रजिस्टर",
-    pillar1Desc: "अनसुलझे सर्च परिणामों के बजाय सीधे SEBI, RBI और MCA के आधिकारिक रजिस्टरों से मिलान।",
-    pillar2Number: "02. भारत-प्रथम",
-    pillar2Title: "बहुभाषी और सरल",
-    pillar2Desc: "बुजुर्गों के लिए सरल मोड और ऑडियो के साथ हिंदी, कन्नड़, तेलुगु और अंग्रेजी में उपलब्ध।",
-    pillar3Number: "03. जिम्मेदार AI",
-    pillar3Title: "ईमानदार विश्लेषण",
-    pillar3Desc: "तथ्यों और अज्ञात बातों के बीच अंतर करता है और परिणाम को चुनौती देने की सुविधा देता है।",
+    aboutDescription: "PARAKH भारत के लिए निर्मित एक AI-संचालित वित्तीय सामग्री सत्यापन प्लेटफॉर्म है। संदिग्ध सामग्री से साक्ष्य-आधारित समझ तक।",
+    aboutWhyTitle: "सुरक्षा के लिए निर्मित, बहकाने के लिए नहीं।",
+    aboutWhyP1: "PARAKH कोई खरीद, बिक्री या निवेश की सिफारिश नहीं करता है। यह उपयोगकर्ताओं से कभी भी OTP, PIN, पासवर्ड या अनावश्यक वित्तीय जानकारी नहीं मांगता है।",
+    aboutWhyP2: "इसका उद्देश्य सरल है: कार्रवाई करने से पहले लोगों को रुकने, जाँचने और समझने में मदद करना।",
+    pillar1Number: "01. TRACE",
+    pillar1Title: "देखें कि विश्वास कहाँ टूटता है।",
+    pillar1Desc: "PARAKH केवल संदेश तक सीमित नहीं रहता। यह वित्तीय दावे के पीछे के संबंधों का पुनर्निर्माण करता है — संस्थाओं, वेबसाइटों, संपर्कों और भुगतान मार्गों को जोड़कर दिखाता है कि उपलब्ध साक्ष्य कहाँ कमजोर पड़ते हैं।",
+    pillar2Number: "02. EXPLAIN",
+    pillar2Title: "देखें कि हमें यह कैसे पता चला।",
+    pillar2Desc: "PARAKH आपको किसी AI स्कोर पर आँख मूँदकर विश्वास करने को नहीं कहता। यह दिखाता है कि क्या पाया गया, क्या साक्ष्य दावे का समर्थन करते हैं, क्या इसका विरोध करते हैं, और क्या स्वतंत्र रूप से सत्यापित नहीं किया जा सका।",
+    pillar3Number: "03. BHARAT-FIRST",
+    pillar3Title: "आपकी अपनी भाषा में सत्यापन।",
+    pillar3Desc: "PARAKH भारत के लिए बनाया गया है — बहुभाषी विश्लेषण, क्षेत्रीय भाषा में व्याख्या, वॉयस इंटरैक्शन और सरल मोड के साथ सभी के लिए सुलभ।",
 
     learnNavBack: "जाँच पर वापस जाएँ",
-    learnBadge: "ज्ञान केंद्र",
-    learnTitle: "भारत में वित्तीय धोखाधड़ी के प्रमुख पैटर्न",
-    learnSubtitle: "जानें कि घोटाले कैसे काम करते हैं, उनके मनोवैज्ञानिक लालच, खतरे के संकेत और कानूनी नियम क्या हैं।",
+    learnBadge: "HOW IT WORKS",
+    learnTitle: "सत्यापन कैसे काम करता है",
+    learnSubtitle: "1 — प्रस्तुत करें (संदेश, स्क्रीनशॉट, वेबसाइट या आवाज) • 2 — विश्लेषण (संदिग्ध दावों और व्यवहारिक संकेतों की पहचान) • 3 — सत्यापन (विश्वसनीय साक्ष्यों से मिलान) • 4 — समझें (Trust Chain, साक्ष्य श्रृंखला, Scam DNA) • 5 — चुनौती दें (वैकल्पिक साक्ष्यों की जांच) • 6 — सुरक्षित रहें (आगे क्या करना है इसका स्पष्ट मार्गदर्शन)।",
     viewRedFlagsAction: "खतरे के संकेत देखें",
     exploreArrow: "जानें →",
     howSchemeOperates: "यह धोखाधड़ी कैसे होती है:",
@@ -977,11 +1361,134 @@ export const TRANSLATIONS: Record<Language, UIStrings> = {
     continueButton: "जारी रखें",
     enterParakhButton: "PARAKH में प्रवेश करें",
 
-    footerTagline: "सिर्फ भरोसा न करें। जाँचें। — भारत के लिए निर्मित AI-संचालित वित्तीय सामग्री सत्यापन।",
-    footerStatutoryNoticeTitle: "वैधानिक सूचना:",
-    footerStatutoryNoticeText: "PARAKH एक शैक्षिक सुरक्षा और सत्यापन उपयोगिता है। PARAKH कोई निवेश सलाह या गारंटीकृत भविष्यवाणी नहीं देता है। धोखाधड़ी के संकेतों से समानता किसी व्यक्ति या संस्था के खिलाफ कानूनी फैसला नहीं बनाती।",
-    footerCopyright: `© ${new Date().getFullYear()} PARAKH. भारतीय साइबर सुरक्षा और नागरिक संरक्षण के लिए निर्मित।`,
-    footerHelplineText: "राष्ट्रीय साइबर हेल्पलाइन: 1930 डायल करें"
+    footerTagline: "जानकारी तेजी से फैलती है। सत्यापन को भी उसी गति से चलना चाहिए। — कोई फैसला लेने से पहले PARAKH आपको समझने में मदद करता है।",
+    footerStatutoryNoticeTitle: "जानकारी तेजी से फैलती है। सत्यापन को भी उसी गति से चलना चाहिए।",
+    footerStatutoryNoticeText: "PARAKH आपको कोई फैसला लेने से पहले यह समझने में मदद करता है कि आप क्या देख रहे हैं। सिर्फ भरोसा न करें। जाँचें।",
+    footerCopyright: `सुरक्षा के लिए निर्मित, बहकाने के लिए नहीं। सिर्फ भरोसा न करें। जाँचें। © ${new Date().getFullYear()} PARAKH.`,
+    footerHelplineText: "राष्ट्रीय साइबर हेल्पलाइन: 1930 डायल करें",
+
+    trustChainBadge: "ट्रस्ट चेन पुनर्निर्माण (Trust Chain)",
+    trustChainTitle: "देखें कि विश्वास कहाँ टूटता है।",
+    trustChainSubtitle: "PARAKH केवल संदेश तक सीमित नहीं रहता। यह वित्तीय दावे के पीछे के संबंधों का पुनर्निर्माण करता है — संस्थाओं, वेबसाइटों, संपर्कों और भुगतान मार्गों को जोड़कर दिखाता है कि उपलब्ध साक्ष्य कहाँ कमजोर पड़ते हैं।",
+    couldNotVerify: "स्वतंत्र रूप से सत्यापित नहीं किया जा सका।",
+    showHowYouKnow: "देखें ਕਿ हमें यह कैसे पता चला।",
+    aiDetected: "AI द्वारा पहचाना गया:",
+    evidenceChecked: "जांचे गए साक्ष्य:",
+    result: "परिणाम:",
+    aiAnalysisTab: "AI विश्लेषण",
+    officialEvidenceTab: "आधिकारिक साक्ष्य",
+    communityEvidenceTab: "समुदाय साक्ष्य",
+
+    emergingPatternBadge: "सामुदायिक बुद्धिमत्ता (Community Intelligence)",
+    emergingPatternTitle: "व्यक्तिगत रिपोर्टों से उभरते हुए पैटर्न तक।",
+    emergingPatternDesc: "नागरिक संदिग्ध अनुभवों की रिपोर्ट कर सकते हैं और साक्ष्य साझा कर सकते हैं। PARAKH रिपोर्टों में दोहराए जाने वाले संकेतों की पहचान करता है और दावों को सत्यापित तथ्यों से अलग रखता है।",
+    emergingPatternDisclaimer: "सामुदायिक साक्ष्य संदर्भ जोड़ते हैं। वे स्वतः धोखाधड़ी साबित नहीं करते हैं।",
+
+    communitySectionBadge: "समुदाय साक्ष्य",
+    communitySectionTitle: "नागरिकों के अनुभव और रिपोर्ट",
+    communitySectionSubtitle: "भारत भर के नागरिकों द्वारा साझा किए गए मामले। प्रत्यक्ष रिपोर्ट और आधिकारिक रिकॉर्ड के बीच स्पष्ट अंतर।",
+    communitySubmitReport: "सामुदायिक रिपोर्ट दर्ज करें",
+    communityFirstHandBadge: "प्रत्यक्ष अनुभव",
+    communityEvidenceAttachedBadge: "साक्ष्य संलग्न",
+    communityClaimBadge: "समुदाय का दावा",
+    communityOfficiallyVerifiedBadge: "आधिकारिक तौर पर सत्यापित",
+    communityAiSummaryTitle: "AI समुदाय सारांश",
+    communityIEncounteredThis: "मुझे भी ऐसा ही संदेश मिला था",
+    communityDisclaimer: "सामुदायिक रिपोर्टें जनहित और जागरूकता के लिए हैं।",
+    communityReportModalTitle: "संदिग्ध वित्तीय सामग्री की रिपोर्ट करें",
+    communityReportCityLabel: "आपका शहर / राज्य",
+    communityReportDescLabel: "आपके साथ क्या हुआ, विस्तार से बताएं",
+    communityReportEvidenceLabel: "साक्ष्य का विवरण (UPI, फोन, स्क्रीनशॉट)",
+    communityReportSubmitAction: "समुदाय में प्रकाशित करें",
+    communityReportCancelAction: "रद्द करें",
+
+    simpleStopBeforeYouPay: "पैसे भेजने से पहले रुकें",
+    simpleMessageAsksMoney: "यह संदेश पैसे मांग रहा है।",
+    simpleCouldNotVerifySender: "हम यह सत्यापित नहीं कर सके कि यह संदेश वास्तव में किसने भेजा है।",
+    simpleCheckOfficialSite: "आधिकारिक वेबसाइट पर जाकर संस्था की सीधे जांच करें।",
+    simpleDoNotShareOtpPin: "अपना OTP, PIN या पासवर्ड किसी के साथ साझा न करें।",
+
+    verdictHighRisk: "उच्च जोखिम वाले संकेत मिले हैं",
+    verdictSomeConcerns: "कुछ चिंताजनक संकेत मौजूद हैं",
+    verdictNoMajorRisk: "कोई बड़ा जोखिम संकेत नहीं मिला",
+    verdictInsufficientEvidence: "अपर्याप्त साक्ष्य",
+    finalParakhVerdict: "अंतिम परख (PARAKH) निर्णय",
+    objectiveForensicAssessment: "वस्तुनिष्ठ फोरेंसिक मूल्यांकन",
+    parakhCorePrinciple: "PARAKH का मूल सिद्धांत",
+    parakhPrincipleQuote: "“हमने जो पाया वह यहाँ है। साक्ष्य यहाँ हैं। जो अनिश्चित है वह यहाँ है। निर्णय आपका है।”",
+    parakhPrincipleSubtext: "सिर्फ भरोसा न करें। जाँचें। — भारतीय नागरिकों की वित्तीय सुरक्षा के लिए निर्मित।",
+
+    pressureVectorsTitle: "संज्ञानात्मक और भावनात्मक दबाव के तरीके (तीव्रता मापन):",
+    statutoryPrefix: "वैधानिक नियम:",
+    signalDetectedTag: "पहचाना गया",
+    signalClearTag: "सुरक्षित",
+
+    objectiveSynthesis: "वस्तुनिष्ठ संश्लेषण",
+    recurringModusOperandi: "बार-बार दोहराया जाने वाला धोखाधड़ी का तरीका:",
+    evidenceDiscrepanciesTitle: "पहचाने गए साक्ष्य में विसंगतियाँ:",
+    viewInSelectedLang: "हिन्दी में देखें",
+    viewOriginal: "मूल संदेश देखें",
+    claimChallengedTag: "दावे को चुनौती दी गई",
+    challengeClaimButton: "दावे को चुनौती दें",
+    evidenceNotePrefix: "साक्ष्य विवरण:",
+    regulatoryCheckPrefix: "नियामक जाँच:",
+    challengeRegisteredNotice: "इस दावे के खिलाफ समुदाय में आपत्ति दर्ज की गई है। PARAKH केवल भीड़ की राय को कानूनी सच मानने से अलग रखता है।",
+
+    trustChainEntityNodes: "8 नोड्स",
+    trustChainInspectHint: "संबंधों और साक्ष्यों की जांच के लिए किसी भी नोड पर क्लिक करें",
+    nodeInspectionTitle: "नोड निरीक्षण:",
+    officialSourceChecked: "जांचा गया आधिकारिक स्रोत:",
+    closeEvidenceAudit: "साक्ष्य निरीक्षण बंद करें",
+    distinctionLayersTitle: "साक्ष्य परतों का स्पष्ट भेद (AI अनुमान आधिकारिक प्रमाण नहीं है)",
+    evidenceAuditDisclaimer: "PARAKH फर्जी नियामक स्वीकृतियां या आंकड़े नहीं गढ़ता। साक्ष्य उपलब्ध न होने पर स्पष्ट रूप से कहता है: “स्वतंत्र रूप से सत्यापित नहीं किया जा सका।”",
+    independentAuditTag: "स्वतंत्र नियामक ऑडिट",
+    reasoningBreakdown: "कारण और साक्ष्य का विस्तृत विवरण",
+
+    whatContradictsTitle: "इसके विपरीत वैधानिक नियम",
+    statutoryRulesBadge: "वैधानिक नियम",
+    observedFactsBadge: "अवलोकित तथ्य",
+
+    audioPlayingWave: "यह अनुभाग पढ़ा जा रहा है...",
+    audioListenSection: "इस अनुभाग को सुनें",
+    audioStopSection: "पढ़ना बंद करें",
+
+    outcomeContradictoryFound: "परस्पर विरोधी साक्ष्य मिले",
+    outcomeContradictoryDesc: "वैकल्पिक वैध परिकल्पना की पुष्टि हुई। PARAKH ने अपने निष्कर्ष को संशोधित किया है।",
+    outcomeInconclusive: "साक्ष्य अनिर्णायक बने हुए हैं",
+    outcomeInconclusiveDesc: "उपलब्ध वैधानिक रिकॉर्ड दावे की पुष्टि या खंडन निश्चितता से नहीं करते।",
+    outcomeNoContradictory: "कोई विश्वसनीय परस्पर विरोधी साक्ष्य नहीं मिला",
+    outcomeNoContradictoryDesc: "वैधानिक ऑडिट पुष्टि करता है कि पाए गए व्यवहारिक संकेत नियामक मानकों का उल्लंघन करते हैं।",
+    challengeVerdictAdjustNotice: "सत्यापित प्रति-साक्ष्य मिलने पर निर्णय बदलने को तत्पर।",
+    retestChallenge: "पुनः चुनौती दें",
+    verdictUpdatedTag: "मूल्यांकन संशोधित",
+
+    matchingVectorsLabel: "समान वैधानिक वैक्टर पाए गए",
+    hideVectorsButton: "वेक्टर छुपाएं",
+    inspectSharedVectorsButton: "साझा वैक्टरों की जांच करें",
+    sharedCharacteristicsTitle: "प्रस्तुतियों में पाए गए साझा लक्षण:",
+
+    // Upgraded Trust Chain Values
+    trustBreakTitle: "विश्वास कहाँ टूटता है?",
+    trustBreakSubtitle: "वह बिंदु जहाँ उपलब्ध साक्ष्य कमजोर या संदिग्ध हो जाते हैं।",
+    relationshipInspectionTitle: "संबंध की जांच (RELATIONSHIP INSPECTION)",
+    relationshipInspectionSubtitle: "क्या यह संबंध वास्तव में दावा की गई संस्था का है?",
+    claimQuestionLabel: "दावा:",
+    evidenceCheckedLabel: "जाँचे गए साक्ष्य:",
+    findingLabel: "निष्कर्ष:",
+    connectedEntitiesLabel: "जुड़े हुए घटक",
+    evidenceGapsLabel: "साक्ष्य अंतराल",
+    suspiciousRelationshipsLabel: "संदिग्ध संबंध",
+    evidenceCoverageLimited: "साक्ष्य कवरेज: सीमित",
+    inspectRelationshipButton: "संबंध की जांच करें",
+    trustGapDetected: "विश्वास अंतराल पहचाना गया",
+    relationshipUnverified: "असत्यापित संबंध",
+    mismatchDetected: "विसंगति पाई गई",
+    officialSourceBadge: "आधिकारिक स्रोत",
+    supportingEvidenceBadge: "समर्थक साक्ष्य",
+    whereDoesTrustBreakQuestion: "इस श्रृंखला में साक्ष्य कहाँ कमजोर पड़ते हैं?",
+    clickToInspectNodeOrEdge: "नोड या कनेक्शन पर क्लिक करें",
+    statusLabel: "स्थिति:",
+    closeInspection: "जांच बंद करें"
   },
 
   // =========================================================================
@@ -999,17 +1506,17 @@ export const TRANSLATIONS: Record<Language, UIStrings> = {
     logoutCta: "లాగౌట్",
     privacyTooltip: "గోప్యతకు ప్రాధాన్యత",
 
-    heroTitlePart1: "గుడ్డిగా నమ్మకండి.",
-    heroTitleVerify: "ధృవీకరించండి.",
-    heroSubtitle: "భారత్ కోసం AI-ఆధారిత ఆర్థిక విషయ ధృవీకరణ.",
+    heroTitlePart1: "నమ్మడానికి ముందు.",
+    heroTitleVerify: "PARAKH చేయండి.",
+    heroSubtitle: "ఆర్థిక సమాచారం నమ్మకం కంటే వేగంగా వ్యాపిస్తుంది. అనుమానాస్పద సందేశాలు, స్క్రీన్‌షాట్‌లు, వెబ్‌సైట్‌లు మరియు వాయిస్ ఇన్‌పుట్‌లను పరిశీలించి — ఏ చర్య తీసుకునే ముందైనా సాక్ష్యాలను నిర్ధారించుకోవడానికి PARAKH మీకు సహాయపడుతుంది.",
     heroGetStarted: "ప్రారంభించండి",
     heroSeeHowItWorks: "ఇది ఎలా పనిచేస్తుందో చూడండి",
-    heroCardBadge: "PARAKH ధృవీకరణ",
-    heroCardWarningSignals: "హెచ్చరిక సూచనలు",
-    heroCardSignalsDesc: "గ్యారెంటీ రిటర్న్‌లు, కృత్రిమ అత్యవసరం మరియు అనధికారిక ఖాతాల్లో గుర్తించబడ్డాయి",
-    heroCardAiSignals: "AI సంకేతాలు",
-    heroCardEvidence: "ఆధారాలు",
-    heroCardVerification: "ధృవీకరణ",
+    heroCardBadge: "TRUST CHAIN RECONSTRUCTION",
+    heroCardWarningSignals: "దావాను అనుసరించండి. సంబంధాన్ని కనుగొనండి. సాక్ష్యాన్ని తనిఖీ చేయండి.",
+    heroCardSignalsDesc: "PARAKH దావాలు, సంస్థలు, వెబ్‌సైట్‌లు, పరిచయాలు, చెల్లింపు మార్గాలు మరియు సాక్ష్యాలను కలుపుతుంది — ఆపై గొలుసు ఎక్కడ బలహీనపడుతుందో చూపుతుంది.",
+    heroCardAiSignals: "Trace",
+    heroCardEvidence: "Explain",
+    heroCardVerification: "Protect",
 
     inputHeading: "మీకు ఏ సందేశం వచ్చింది?",
     inputSubtitle: "మీరు ఏదైనా చర్య తీసుకునే ముందు దాన్ని అర్థం చేసుకుని ధృవీకరించడానికి PARAKH మీకు సహాయపడుతుంది.",
@@ -1223,6 +1730,169 @@ export const TRANSLATIONS: Record<Language, UIStrings> = {
     footerStatutoryNoticeTitle: "చట్టబద్ధమైన హెచ్చరిక:",
     footerStatutoryNoticeText: "PARAKH అనేది ఒక విద్యాపరమైన భద్రత మరియు విషయ ధృవీకరణ వేదిక. PARAKH ఎలాంటి పెట్టుబడి సలహాలు లేదా గ్యారెంటీ అంచనాలను అందించదు. మోసాల నమూనాలతో పోలిక ఉన్నంత మాత్రాన ఏ వ్యక్తి లేదా సంస్థపై ఇది చట్టపరమైన తుది తీర్పు కాదు.",
     footerCopyright: `© ${new Date().getFullYear()} PARAKH. భారతీయ సైబర్ భద్రత మరియు పౌరుల రక్షణ కోసం రూపొందించబడింది.`,
-    footerHelplineText: "జాతీయ సైబర్ హెల్ప్‌లైన్: 1930 కి కాల్ చేయండి"
-  }
+    footerHelplineText: "జాతీయ సైబర్ హెల్ప్‌లైన్: 1930 కి కాల్ చేయండి",
+
+    trustChainBadge: "నమ్మకపు గొలుసు పునర్నిర్మాణం (Trust Chain)",
+    trustChainTitle: "నమ్మకపు గొలుసు పునర్నిర్మాణం",
+    trustChainSubtitle: "సందేశం, దావాలు, సంస్థలు మరియు అధికారిక ఆధారాల మధ్య సంబంధాల పరిశీలన.",
+    couldNotVerify: "స్వతంత్రంగా ధృవీకరించడం సాధ్యం కాలేదు.",
+    showHowYouKnow: "మేము దీన్ని ఎలా తెలుసుకున్నామో చూడండి",
+    aiDetected: "AI గుర్తించినవి:",
+    evidenceChecked: "పరిశీలించిన ఆధారాలు:",
+    result: "ఫలితం:",
+    aiAnalysisTab: "AI విశ్లేషణ",
+    officialEvidenceTab: "అధికారిక ఆధారాలు",
+    communityEvidenceTab: "కమ్యూనిటీ ఆధారాలు",
+
+    emergingPatternBadge: "కమ్యూనిటీ సంకేతం",
+    emergingPatternTitle: "వెలుగులోకి వస్తున్న సంభావ్య మోసం నమూనా",
+    emergingPatternDesc: "అందిన పలు నివేదికలలో ఒకే విధమైన లక్షణాలు గుర్తించబడ్డాయి.",
+    emergingPatternDisclaimer: "కమ్యూనిటీ నివేదికలు సహాయక ఆధారాలు మాత్రమే, చట్టపరమైన తుది రుజువు కాదు.",
+
+    communitySectionBadge: "కమ్యూనిటీ ఆధారాలు",
+    communitySectionTitle: "పౌరుల అనుభవాలు మరియు నివేదికలు",
+    communitySectionSubtitle: "భారతదేశం అంతటా పౌరులు పంచుకున్న వాస్తవ సంఘటనలు.",
+    communitySubmitReport: "కమ్యూనిటీ నివేదికను సమర్పించండి",
+    communityFirstHandBadge: "ప్రత్యక్ష అనుభవం",
+    communityEvidenceAttachedBadge: "ఆధారం జతచేయబడింది",
+    communityClaimBadge: "కమ్యూనిటీ క్లెయిమ్",
+    communityOfficiallyVerifiedBadge: "అధికారికంగా ధృవీకరించబడింది",
+    communityAiSummaryTitle: "AI కమ్యూనిటీ సారాంశం",
+    communityIEncounteredThis: "నాకు కూడా ఇలాంటి సందేశమే వచ్చింది",
+    communityDisclaimer: "కమ్యూనిటీ నివేదికలు ప్రజా అవగాహన కోసం మాత్రమే.",
+    communityReportModalTitle: "అనుమానాస్పద సందేశాన్ని నివేదించండి",
+    communityReportCityLabel: "మీ నగరం / రాష్ట్రం",
+    communityReportDescLabel: "మీకు ఎదురైన అనుభవాన్ని వివరించండి",
+    communityReportEvidenceLabel: "ఆధారాల వివరాలు (UPI, ఫోన్, స్క్రీన్‌షాట్)",
+    communityReportSubmitAction: "కమ్యూనిటీలో ప్రచురించండి",
+    communityReportCancelAction: "రద్దు చేయండి",
+
+    simpleStopBeforeYouPay: "డబ్బు పంపే ముందు ఆగండి",
+    simpleMessageAsksMoney: "ఈ సందేశం డబ్బు అడుగుతోంది.",
+    simpleCouldNotVerifySender: "ఈ సందేశం ఎవరు పంపారో మేము ధృవీకరించలేకపోయాము.",
+    simpleCheckOfficialSite: "అధికారిక వెబ్‌సైట్ ద్వారా నేరుగా సంస్థను పరిశీలించండి.",
+    simpleDoNotShareOtpPin: "OTP, PIN లేదా పాస్‌వర్డ్‌ను ఎవరితోనూ పంచుకోవద్దు.",
+
+    verdictHighRisk: "అధిక ప్రమాద సూచనలు గుర్తించబడ్డాయి",
+    verdictSomeConcerns: "కొన్ని ఆందోళనకర సంకేతాలు ఉన్నాయి",
+    verdictNoMajorRisk: "ఎటువంటి పెద్ద ప్రమాద సంకేతాలు లేవు",
+    verdictInsufficientEvidence: "సరిపోని ఆధారాలు",
+    finalParakhVerdict: "తుది పరఖ్ (PARAKH) తీర్పు",
+    objectiveForensicAssessment: "నిష్పాక్షిక ఫోరెన్సిక్ అంచనా",
+    parakhCorePrinciple: "PARAKH ప్రాథమిక సూత్రం",
+    parakhPrincipleQuote: "“మేము గుర్తించినది ఇది. ఆధారాలు ఇవి. అనిశ్చితంగా ఉన్నది ఇది. మీరే నిర్ణయించుకోండి.”",
+    parakhPrincipleSubtext: "గుడ్డిగా నమ్మకండి. ధృవీకరించండి. — భారతీయ పౌరుల ఆర్థిక రక్షణ కోసం రూపొందించబడింది.",
+
+    pressureVectorsTitle: "మానసిక మరియు భావోద్వేగ ఒత్తిడి వ్యూహాలు (తీవ్రత కొలత):",
+    statutoryPrefix: "చట్టబద్ధమైన నియమం:",
+    signalDetectedTag: "గుర్తించబడింది",
+    signalClearTag: "సురక్షితం",
+
+    objectiveSynthesis: "నిష్పాక్షిక విశ్లేషణ సంశ్లేషణ",
+    recurringModusOperandi: "పునరావృతమయ్యే మోసం శైలి (Modus Operandi):",
+    evidenceDiscrepanciesTitle: "గుర్తించిన ఆధారాల వ్యత్యాసాలు:",
+    viewInSelectedLang: "తెలుగులో చూడండి",
+    viewOriginal: "అసలు సందేశాన్ని చూడండి",
+    claimChallengedTag: "క్లెయిమ్ సవాలు చేయబడింది",
+    challengeClaimButton: "క్లెయిమ్‌ను సవాలు చేయండి",
+    evidenceNotePrefix: "లభించిన ఆధారం:",
+    regulatoryCheckPrefix: "చట్టబద్ధమైన తనిఖీ:",
+    challengeRegisteredNotice: "ఈ దావాపై కమ్యూనిటీ వివాదం నమోదైంది. కేవలం ఎక్కువ మంది చెప్పారు అనే కారణంతో వాస్తవంగా తీసుకోకుండా PARAKH దీన్ని వేరుచేస్తుంది.",
+
+    trustChainEntityNodes: "8 అనుసంధాన నోడ్‌లు",
+    trustChainInspectHint: "సంబంధాలు మరియు ఆధారాలను పరిశీలించడానికి ఏదైనా నోడ్‌పై క్లిక్ చేయండి",
+    nodeInspectionTitle: "నోడ్ పరిశీలన:",
+    officialSourceChecked: "పరిశీలించిన అధికారిక మూలం:",
+    closeEvidenceAudit: "ఆధారాల పరిశీలనను ముగించండి",
+    distinctionLayersTitle: "ఆధారాల స్థాయిల విభజన (AI ఊహలు అధికారిక ఆధారాలు కావు)",
+    evidenceAuditDisclaimer: "PARAKH ప్రభుత్వ అనుమతులను, యూజర్ల సంఖ్యను లేదా సంస్థలను ఎప్పుడూ స్వయంగా సృష్టించదు. ఆధారం లేకపోతే స్పష్టంగా: “స్వతంత్రంగా ధృవీకరించడం సాధ్యం కాలేదు” అని చెబుతుంది.",
+    independentAuditTag: "స్వతంత్ర నియంత్రణ సంస్థల తనిఖీ",
+    reasoningBreakdown: "విశ్లేషణ మరియు ఆధారాల సమగ్ర వివరణ",
+
+    whatContradictsTitle: "దీనికి విరుద్ధంగా ఉన్న చట్టబద్ధమైన నిబంధనలు",
+    statutoryRulesBadge: "చట్టబద్ధమైన నియమాలు",
+    observedFactsBadge: "ధృవీకరించిన వాస్తవాలు",
+
+    audioPlayingWave: "ఈ విభాగాన్ని చదువుతున్నాము...",
+    audioListenSection: "ఈ విభాగాన్ని వినండి",
+    audioStopSection: "చదవడం ఆపండి",
+
+    outcomeContradictoryFound: "విరుద్ధమైన ఆధారాలు లభించాయి",
+    outcomeContradictoryDesc: "ప్రత్యామ్నాయ చట్టబద్ధమైన పరికల్పన నిర్ధారించబడింది. PARAKH తన తీర్పును సవరించింది.",
+    outcomeInconclusive: "ఆధారాలు ఇంకా అసంపూర్ణంగా ఉన్నాయి",
+    outcomeInconclusiveDesc: "అందుబాటులో ఉన్న రికార్డులు దావాను నిశ్చయంగా ధృవీకరించడం లేదా తోసిపుచ్చడం చేయలేవు.",
+    outcomeNoContradictory: "విశ్వసనీయమైన విరుద్ధ ఆధారాలు ఏవీ లభించలేదు",
+    outcomeNoContradictoryDesc: "గుర్తించిన ప్రవర్తనా సంకేతాలు నియంత్రణ ప్రమాణాలను ఉల్లంఘిస్తున్నాయని చట్టబద్ధమైన తనిఖీ ధృవీకరిస్తుంది.",
+    challengeVerdictAdjustNotice: "ధృవీకరించబడిన ప్రతి-సాక్ష్యం వెలువడినప్పుడు తీర్పును సర్దుబాటు చేయడానికి సిద్ధంగా ఉన్నాము.",
+    retestChallenge: "మళ్లీ సవాలు చేయండి",
+    verdictUpdatedTag: "తీర్పు సవరించబడింది",
+
+    matchingVectorsLabel: "సరిపోలే వెక్టర్‌లు గుర్తించబడ్డాయి",
+    hideVectorsButton: "వెక్టర్‌లను దాచండి",
+    inspectSharedVectorsButton: "ఉమ్మడి వెక్టర్‌లను పరిశీలించండి",
+    sharedCharacteristicsTitle: "సమర్పణలలో గుర్తించిన ఉమ్మడి లక్షణాలు:",
+
+    // Upgraded Trust Chain Values
+    trustBreakTitle: "నమ్మకం ఎక్కడ తెగిపోతుంది?",
+    trustBreakSubtitle: "అందుబాటులో ఉన్న ఆధారాలు బలహీనమయ్యే లేదా తెగిపోయే ముఖ్య స్థానం.",
+    relationshipInspectionTitle: "సంబంధ పరిశీలన (RELATIONSHIP INSPECTION)",
+    relationshipInspectionSubtitle: "ఈ కనెక్షన్ వాస్తవంగా పేర్కొన్న సంస్థకు చెందినదేనా?",
+    claimQuestionLabel: "దావా:",
+    evidenceCheckedLabel: "తనిఖీ చేసిన ఆధారాలు:",
+    findingLabel: "పరిశీలన ఫలితం:",
+    connectedEntitiesLabel: "అనుసంధాన విభాగాలు",
+    evidenceGapsLabel: "ఆధారాల అంతరాలు",
+    suspiciousRelationshipsLabel: "అనుమానాస్పద సంబంధాలు",
+    evidenceCoverageLimited: "ఆధారాల కవరేజ్: పరిమితం",
+    inspectRelationshipButton: "సంబంధాన్ని పరిశీలించండి",
+    trustGapDetected: "నమ్మకపు అంతరం గుర్తించబడింది",
+    relationshipUnverified: "ధృవీకరించని సంబంధం",
+    mismatchDetected: "సరిపోలని వివరాలు గుర్తించబడ్డాయి",
+    officialSourceBadge: "అధికారిక మూలం",
+    supportingEvidenceBadge: "సహాయక ఆధారం",
+    whereDoesTrustBreakQuestion: "ఈ గొలుసులో నమ్మకం ఎక్కడ బలహీనపడుతోంది?",
+    clickToInspectNodeOrEdge: "నోడ్ లేదా కనెక్షన్‌పై క్లిక్ చేయండి",
+    statusLabel: "స్థితి:",
+    closeInspection: "పరిశీలన ముగించండి"
+  },
+
+  // =========================================================================
+  // TAMIL (தமிழ்)
+  // =========================================================================
+  ta: TAMIL_TRANSLATIONS(enStrings),
+
+  // =========================================================================
+  // MALAYALAM (മലയാളം)
+  // =========================================================================
+  ml: EXTENDED_LANGUAGE_BUILDERS.ml(enStrings),
+
+  // =========================================================================
+  // MARATHI (मराठी)
+  // =========================================================================
+  mr: EXTENDED_LANGUAGE_BUILDERS.mr(enStrings),
+
+  // =========================================================================
+  // BENGALI (বাংলা)
+  // =========================================================================
+  bn: EXTENDED_LANGUAGE_BUILDERS.bn(enStrings),
+
+  // =========================================================================
+  // GUJARATI (ગુજરાતી)
+  // =========================================================================
+  gu: EXTENDED_LANGUAGE_BUILDERS.gu(enStrings),
+
+  // =========================================================================
+  // PUNJABI (ਪੰਜਾਬੀ)
+  // =========================================================================
+  pa: EXTENDED_LANGUAGE_BUILDERS.pa(enStrings),
+
+  // =========================================================================
+  // ODIA (ଓଡ଼ିଆ)
+  // =========================================================================
+  or: EXTENDED_LANGUAGE_BUILDERS.or(enStrings),
+
+  // =========================================================================
+  // URDU (اردو)
+  // =========================================================================
+  ur: EXTENDED_LANGUAGE_BUILDERS.ur(enStrings)
 };

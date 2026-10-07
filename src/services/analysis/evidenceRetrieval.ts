@@ -1,12 +1,18 @@
 import { EvidenceItem, Language } from '../../types/analysis';
 
+type LocalizedEntry = { claim: string; summary: string };
+
+function pickLocalized(dict: Record<string, LocalizedEntry>, lang: Language, fallback: LocalizedEntry): LocalizedEntry {
+  return dict[lang] || dict.en || fallback;
+}
+
 export function retrieveEvidence(rawText: string, language: Language = 'en'): EvidenceItem[] {
   const text = rawText.toLowerCase();
   const items: EvidenceItem[] = [];
 
-  // Check 1: Guaranteed Returns vs SEBI Regulation
-  if (/(guaranteed|assured|confirmed|100%|profit|return|pakka|ಖಾತರಿ|ಗ್ಯಾರಂಟಿ|गारंटी|గ్యారెంటీ)/i.test(text)) {
-    const localized = {
+  // Check 1: SEBI Guaranteed returns prohibition
+  if (/(guaranteed|assured|confirmed|pakka|100%|daily profit|double|ಖಾತರಿ|गंभीर|గ్యారెంటీ)/i.test(text)) {
+    const dict: Record<string, LocalizedEntry> = {
       en: {
         claim: 'Entity promises fixed, assured, or guaranteed returns on securities.',
         summary: 'SEBI circulars (SEBI/HO/MIRSD/DOS3/CIR/P/2018/115) strictly prohibit any intermediary from assuring fixed returns on market investments. Statutorily, no registered entity may make this claim.'
@@ -23,10 +29,12 @@ export function retrieveEvidence(rawText: string, language: Language = 'en'): Ev
         claim: 'సెక్యూరిటీలపై స్థిరమైన లేదా ఖచ్చితమైన లాభాల వాగ్దానం.',
         summary: 'SEBI సర్క్యులర్ల ప్రకారం మార్కెట్ పెట్టుబడులపై ఏ మధ్యవర్తి కూడా ఖచ్చితమైన లాభాల హామీ ఇవ్వకూడదు. చట్టబద్ధంగా ఏ నమోదిత సంస్థ కూడా ఈ దావా చేయకూడదు.'
       }
-    }[language] || {
+    };
+
+    const localized = pickLocalized(dict, language, {
       claim: 'Entity promises fixed, assured, or guaranteed returns on securities.',
       summary: 'SEBI circulars strictly prohibit assuring fixed returns on market investments.'
-    };
+    });
 
     items.push({
       id: 'ev-sebi-guaranteed-returns',
@@ -43,7 +51,7 @@ export function retrieveEvidence(rawText: string, language: Language = 'en'): Ev
 
   // Check 2: Regulatory Claim verification
   if (/(sebi|rbi|certified|approved|research analyst)/i.test(text)) {
-    const localized = {
+    const dict: Record<string, LocalizedEntry> = {
       en: {
         claim: 'Sender claims to be a SEBI-approved or SEBI-registered research entity.',
         summary: 'SEBI requires public disclosure of valid 10-digit registration numbers (e.g. INH... or INA...). No verifiable statutory registration number was provided in this communication.'
@@ -60,10 +68,12 @@ export function retrieveEvidence(rawText: string, language: Language = 'en'): Ev
         claim: 'సందేశం పంపినవారు సెబీ ఆమోదించిన లేదా నమోదిత సంస్థ అని క్లెయిమ్ చేస్తున్నారు.',
         summary: 'SEBI నిబంధనల ప్రకారం చెల్లుబాటు అయ్యే 10-అంకెల రిజిస్ట్రేషన్ నంబర్‌ను వెల్లడించడం తప్పనిసరి. ఈ సందేశంలో ఎటువంటి ధృవీకరించదగిన రిజిస్ట్రేషన్ నంబర్ అందించబడలేదు.'
       }
-    }[language] || {
+    };
+
+    const localized = pickLocalized(dict, language, {
       claim: 'Sender claims to be a SEBI-approved entity.',
       summary: 'No verifiable statutory registration number was provided.'
-    };
+    });
 
     items.push({
       id: 'ev-sebi-intermediary-register',
@@ -80,7 +90,7 @@ export function retrieveEvidence(rawText: string, language: Language = 'en'): Ev
 
   // Check 3: Private UPI / Bank accounts vs Statutory Client Segregation
   if (/(upi|transfer|account|a\/c|ifsc|deposit|screenshot)/i.test(text)) {
-    const localized = {
+    const dict: Record<string, LocalizedEntry> = {
       en: {
         claim: 'Funds are requested directly into private personal UPI or third-party savings accounts.',
         summary: 'Regulated brokers and portfolio managers are legally mandated to collect investments into segregated Client Bank Accounts or Clearing Corporation escrow accounts, never into individual UPI handles.'
@@ -97,10 +107,12 @@ export function retrieveEvidence(rawText: string, language: Language = 'en'): Ev
         claim: 'వ్యక్తిగత ప్రైవేట్ UPI లేదా సేవింగ్స్ ఖాతాలకు నేరుగా డబ్బు పంపమని కోరారు.',
         summary: 'నియంత్రిత బ్రోకర్లు క్లియరింగ్ కార్పొరేషన్ యొక్క అధికారిక బ్యాంక్ ఖాతాలలో మాత్రమే పెట్టుబడులను స్వీకరించాలి, ఎప్పుడూ వ్యక్తిగత UPI ఖాతాలలో కాదు.'
       }
-    }[language] || {
+    };
+
+    const localized = pickLocalized(dict, language, {
       claim: 'Funds requested into personal UPI accounts.',
       summary: 'Regulated brokers must collect investments only in segregated clearing accounts.'
-    };
+    });
 
     items.push({
       id: 'ev-rbi-client-segregation',
@@ -117,7 +129,7 @@ export function retrieveEvidence(rawText: string, language: Language = 'en'): Ev
 
   // Check 4: APK or Phishing Link
   if (/(\.apk|download|link|kyc-update|utility)/i.test(text)) {
-    const localized = {
+    const dict: Record<string, LocalizedEntry> = {
       en: {
         claim: 'Distribution of application files (.apk) or unverified links for KYC/banking updates.',
         summary: 'CERT-In and Indian Cyber Crime Coordination Centre (I4C) warn that sideloading APK files sent via SMS/chat is a primary mechanism for installing banking Trojan malware.'
@@ -134,10 +146,12 @@ export function retrieveEvidence(rawText: string, language: Language = 'en'): Ev
         claim: 'KYC అప్‌డేట్ పేరుతో తెలియని యాప్ ఫైల్‌లు (.apk) లేదా లింక్‌ల పంపిణీ.',
         summary: 'SMS లేదా చాట్ ద్వారా పంపిన APK ఫైల్‌లను ఇన్‌స్టాల్ చేయడం బ్యాంకింగ్ ట్రోజన్ మాల్వేర్‌ను ఇన్‌స్టాల్ చేసే ప్రధాన మార్గమని CERT-In హెచ్చరిస్తోంది.'
       }
-    }[language] || {
+    };
+
+    const localized = pickLocalized(dict, language, {
       claim: 'Distribution of APK files for banking updates.',
       summary: 'Sideloading APK files is a primary vector for banking malware.'
-    };
+    });
 
     items.push({
       id: 'ev-certin-apk-advisory',

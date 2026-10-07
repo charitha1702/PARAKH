@@ -17,7 +17,7 @@ export const WhatFoundSection: React.FC<WhatFoundSectionProps> = ({ analysis, cu
 
   const selectedSignal = analysis.signals.find(s => s.id === selectedSignalId) || analysis.signals[0];
 
-  const severityLabels: Record<Language, { critical: string; high: string; medium: string; low: string }> = {
+  const severityLabels: Partial<Record<Language, { critical: string; high: string; medium: string; low: string }>> & { en: { critical: string; high: string; medium: string; low: string } } = {
     en: { critical: 'Critical', high: 'High', medium: 'Moderate', low: 'Low' },
     kn: { critical: 'ಗಂಭೀರ', high: 'ಹೆಚ್ಚು', medium: 'ಮಧ್ಯಮ', low: 'ಕಡಿಮೆ' },
     hi: { critical: 'गंभीर', high: 'उच्च', medium: 'मध्यम', low: 'कम' },
@@ -28,7 +28,7 @@ export const WhatFoundSection: React.FC<WhatFoundSectionProps> = ({ analysis, cu
     return (severityLabels[currentLanguage] || severityLabels.en)[severity] || severity;
   };
 
-  const regulatoryStandards: Record<Language, Record<string, string>> = {
+  const regulatoryStandards: Partial<Record<Language, Record<string, string>>> & { en: Record<string, string> } = {
     en: {
       guaranteed_returns: 'SEBI Investment Advisers Regulations prohibit assured return promises.',
       payment_pressure: 'RBI guidelines mandate collection strictly through segregated clearing accounts.',

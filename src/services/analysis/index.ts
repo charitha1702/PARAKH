@@ -51,3 +51,6 @@ export * from './contentAnalysis';
 export * from './signalDetection';
 export * from './evidenceRetrieval';
 export * from './challengeAssessment';
+export * from './trustChainBuilder';
+export * from './scamDnaBuilder';
+export * from './communityEvidenceBuilder';

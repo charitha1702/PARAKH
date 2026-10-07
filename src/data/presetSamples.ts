@@ -1,8 +1,8 @@
 import { Language, PresetSample } from '../types/analysis';
 
 export interface LocalizedPresetSample extends PresetSample {
-  localizedTitle: Record<Language, string>;
-  localizedCategory: Record<Language, string>;
+  localizedTitle: Partial<Record<Language, string>> & { en: string };
+  localizedCategory: Partial<Record<Language, string>> & { en: string };
 }
 
 export const PRESET_SAMPLES: LocalizedPresetSample[] = [

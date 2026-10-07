@@ -13,7 +13,7 @@ export interface LocalizedOfficialRegistry {
   verificationStepsHint: string;
 }
 
-export const OFFICIAL_REGISTRIES: Record<Language, LocalizedOfficialRegistry[]> = {
+export const OFFICIAL_REGISTRIES: Partial<Record<Language, LocalizedOfficialRegistry[]>> & Record<'en', LocalizedOfficialRegistry[]> = {
   en: [
     {
       id: 'sebi-intermediaries',

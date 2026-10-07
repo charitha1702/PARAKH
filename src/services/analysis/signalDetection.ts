@@ -12,7 +12,7 @@ export function detectSignals(rawText: string, language: Language = 'en'): Detec
   const highlightedExcerpts: Array<{ text: string; signalId: string; reason: string }> = [];
 
   // Localized string templates for signals
-  const templates: Record<string, Record<Language, { name: string; title: string; explanation: string; simpleExplanation: string; reason: string }>> = {
+  const templates: Record<string, Partial<Record<Language, { name: string; title: string; explanation: string; simpleExplanation: string; reason: string }>> & { en: { name: string; title: string; explanation: string; simpleExplanation: string; reason: string } }> = {
     guaranteed: {
       en: {
         name: 'Guaranteed-return claim',
